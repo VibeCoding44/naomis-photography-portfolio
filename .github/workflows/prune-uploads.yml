@@ -1,0 +1,41 @@
+name: Prune orphaned uploads
+
+# When a portfolio entry is added/removed (e.g. a photo deleted in Decap CMS),
+# remove any image in public/images/uploads/ that no entry references anymore,
+# then commit the cleanup. [skip ci] keeps it from triggering a Netlify rebuild
+# (removing unreferenced files doesn't change the rendered site).
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/portfolio/**"
+      - "public/images/uploads/**"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: prune-uploads
+  cancel-in-progress: false
+
+jobs:
+  prune:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Remove uploads not referenced by any portfolio entry
+        run: node scripts/prune-orphan-uploads.mjs
+      - name: Commit cleanup (if anything was pruned)
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore: prune orphaned upload images [skip ci]"
+            git push
+          else
+            echo "Nothing to prune."
+          fi
