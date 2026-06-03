@@ -3,6 +3,7 @@ import path from "path";
 
 export type PortfolioItem = {
     image: string;
+    title?: string;
     caption?: string;
     category?: string;
     order?: number;

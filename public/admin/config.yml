@@ -64,12 +64,11 @@ collections:
     extension: json
     format: json
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    identifier_field: caption
-    summary: "{{caption}} — {{category}}"
+    summary: "{{title}} — {{category}}"
     sortable_fields: [order, date]
     fields:
       - { name: image, label: Photo, widget: image }
-      - { name: caption, label: Caption (optional), widget: string, required: false }
+      - { name: title, label: "Caption / title for this photo", widget: string }
       - name: category
         label: Category
         widget: select

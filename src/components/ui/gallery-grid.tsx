@@ -15,7 +15,9 @@ export function GalleryGrid({ items }: { items: PortfolioItem[] }) {
 
     return (
         <div className="columns-1 md:columns-2 lg:columns-3 gap-6 space-y-6">
-            {items.map((item, i) => (
+            {items.map((item, i) => {
+                const label = item.title || item.caption || "";
+                return (
                 <motion.div
                     key={item.image}
                     initial={{ opacity: 0, y: 20 }}
@@ -26,7 +28,7 @@ export function GalleryGrid({ items }: { items: PortfolioItem[] }) {
                 >
                     <Image
                         src={item.image}
-                        alt={item.caption || `Portfolio image ${i + 1}`}
+                        alt={label || `Portfolio image ${i + 1}`}
                         width={800}
                         height={600}
                         className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
@@ -34,12 +36,13 @@ export function GalleryGrid({ items }: { items: PortfolioItem[] }) {
                     />
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-4">
-                        {item.caption ? (
-                            <span className="text-white/90 text-sm font-light">{item.caption}</span>
+                        {label ? (
+                            <span className="text-white/90 text-sm font-light">{label}</span>
                         ) : null}
                     </div>
                 </motion.div>
-            ))}
+                );
+            })}
         </div>
     )
 }
