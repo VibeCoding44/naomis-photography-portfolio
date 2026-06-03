@@ -45,18 +45,10 @@ publish_mode: editorial_workflow
 locale: en
 show_preview_links: false
 
-# --- PHOTO STORAGE: Cloudinary --------------------------------------------
-# Uploaded photos go to Cloudinary's image CDN (auto-resized, fast), NOT into
-# the git repo — so the repo stays small. Only a tiny JSON file per photo is
-# committed. cloud_name + api_key are PUBLIC by design (safe to commit).
-# ⚠️  REPLACE with your Cloudinary cloud name + API key.
-media_library:
-  name: cloudinary
-  config:
-    cloud_name: dqvxyv8cp        # public by design — safe to commit
-    api_key: "182326936831169"   # public by design — safe to commit
-
-# Local fallback folder (used only if Cloudinary is ever removed)
+# --- PHOTO STORAGE: repo-backed -------------------------------------------
+# Photographers upload right inside the portal using only their DecapBridge
+# login (no Cloudinary account needed). The image file is committed to this
+# repo under public/images/uploads/ and served from /images/uploads/.
 media_folder: "public/images/uploads"
 public_folder: "/images/uploads"
 

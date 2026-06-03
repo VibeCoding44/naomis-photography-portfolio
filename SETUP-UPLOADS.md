@@ -1,119 +1,81 @@
-# Photo Upload Portal — Setup Guide
+# Photo Upload Portal — How It Works
 
-Your site now has a photo-upload portal at **`/admin`** where invited photographers
-log in, upload a photo, and submit it for **your approval**. Once you approve it,
-the photo appears on the Portfolio page automatically (the site rebuilds itself).
-
-How it works under the hood:
+Your site has a photo-upload portal at **`/admin`** where invited photographers log in,
+upload a photo, and submit it for **your approval**. Once you approve it, the photo
+appears on the Portfolio page automatically.
 
 ```
-Photographer logs in at /admin
-   → uploads a photo (stored on Cloudinary's image CDN)
-   → CMS commits a tiny JSON file to this GitHub repo as a "pending" entry (a pull request)
-   → YOU open /admin, review it, click Publish
-   → Netlify rebuilds → photo shows on the Portfolio page (~1 min)
+Photographer logs in at /admin   (DecapBridge account — one login)
+   → uploads a photo (committed into this repo under public/images/uploads/)
+   → it becomes a PENDING entry (a pull request) — not yet live
+   → YOU open /admin → Workflow tab → review → Publish
+   → Netlify rebuilds from GitHub → photo shows on the Portfolio page (~1–2 min)
 ```
 
-No server, no database — it all rides on your existing GitHub → Netlify deploy.
-
-There are **three free accounts** to connect. Do them in this order. Budget ~20 minutes.
+No server, no database, no Cloudinary — it rides entirely on GitHub → Netlify.
 
 ---
 
-## 1. Cloudinary (where the photos are stored)
+## The moving parts (all configured already)
 
-1. Sign up free at <https://cloudinary.com/users/register_free>.
-2. In the Cloudinary **Console → Dashboard**, copy your **Cloud name** and **API Key**
-   (top-left "Product Environment Credentials").
-3. Open `public/admin/config.yml` in this repo and replace:
-   - `YOUR_CLOUDINARY_CLOUD_NAME` → your cloud name
-   - `YOUR_CLOUDINARY_API_KEY` → your API key
+| Piece | What it does | Where |
+|---|---|---|
+| **Decap CMS** | the `/admin` upload UI | `public/admin/` |
+| **DecapBridge** | login for invited photographers (PKCE) | https://decapbridge.com |
+| **GitHub** | stores photos + photo entries | `VibeCoding44/naomis-photography-portfolio` |
+| **Netlify** | builds & hosts the site on every push | site `naomis-photography-portfolio-v1` |
 
-   > These two values are **public by design** — Cloudinary's media widget needs them
-   > in the browser, and they're safe to commit. (Your API *secret* is never used here.)
-4. In Cloudinary, go to **Settings → Security** and make sure
-   **"Unsigned uploading"** is enabled (Settings → Upload → Upload presets →
-   ensure an unsigned preset exists, or toggle unsigned on). This lets photographers
-   upload from the browser.
+Photos are stored **in the repo** (`public/images/uploads/`), so photographers only need
+their **DecapBridge login** — no second account anywhere.
 
 ---
 
-## 2. DecapBridge (the login for invited photographers)
+## Inviting photographers
 
-Netlify's old built-in login (Netlify Identity) was deprecated in Feb 2025, so we use
-DecapBridge — it's free (up to 3 sites / 10 collaborators) and lets you invite people
-by **email**, so your photographers don't need GitHub accounts.
+1. Go to **https://decapbridge.com** → your site → **Collaborators**.
+2. Click **Invite**, enter the photographer's **email** (up to 10 on the free tier).
+3. They get an email to set up their login.
+4. Send them the portal link:
 
-1. Sign up at <https://decapbridge.com> and click **Create Site**.
-2. **Link the Git repository**: `VibeCoding44/naomis-photography-portfolio`, branch `main`.
-   (DecapBridge will ask you to authorize it on GitHub so it can commit uploads.)
-3. DecapBridge generates a **backend config** for you. Copy it and paste it over the
-   `backend:` block in `public/admin/config.yml`, replacing:
-   - `https://auth.decapbridge.com/sites/YOUR_SITE_ID`
-   - `https://gateway.decapbridge.com`
+   ```
+   https://cutecompanyphotography.com/admin/
+   ```
 
-   with the exact URLs it shows (the `YOUR_SITE_ID` part is unique to your site).
-4. In DecapBridge → your site → **Collaborators**, click **Invite** and enter each
-   photographer's email. They'll get an email to set a password — that's their login.
+Tell them: *"Click the DecapBridge invite email to set your password, then go to
+cutecompanyphotography.com/admin/ to upload your photos."*
 
----
+## Approving an upload (your job)
 
-## 3. Commit & deploy
+1. Go to **https://cutecompanyphotography.com/admin/** and log in.
+2. Open the **Workflow** tab — pending uploads sit there.
+3. Review one, then move it to **Published** (or click Publish).
+4. Netlify rebuilds; the photo appears on the Portfolio page in ~1–2 minutes.
 
-Once steps 1 and 2 are filled into `public/admin/config.yml`:
+## Uploading (what photographers do)
 
-```bash
-git add -A
-git commit -m "Add photo upload portal (Decap CMS + Cloudinary)"
-git push
-```
-
-Netlify auto-builds. When it's live:
-
-- **Photographers** go to **`https://cutecompanyphotography.com/admin`**, log in, and click
-  **"Portfolio Photos" → New Photo** to upload.
-- **You** go to the same `/admin`, open the **Workflow** tab, review pending uploads, and
-  drag them to **Published** (or click Publish). That triggers the rebuild and the photo
-  goes live on the Portfolio page.
-
----
-
-## 4. (Optional) Pretty subdomain: upload.cutecompanyphotography.com
-
-The portal works at `/admin` immediately. If you'd rather hand photographers a clean
-`upload.cutecompanyphotography.com` link:
-
-1. In **Netlify → Domain management → Add a domain alias**, add
-   `upload.cutecompanyphotography.com`. Netlify gives you a DNS target.
-2. In your DNS provider, add a **CNAME** record:
-   `upload` → `<your-site>.netlify.app` (Netlify shows the exact value).
-3. Photographers then visit **`https://upload.cutecompanyphotography.com/admin`**.
-
-   > It's still the same site, so the portal lives under `/admin` on that subdomain too.
-   > If you want the bare `upload.cutecompanyphotography.com` (no `/admin`) to open the
-   > portal, add a redirect in `netlify.toml`:
-   > ```toml
-   > [[redirects]]
-   >   from = "https://upload.cutecompanyphotography.com/"
-   >   to = "/admin/"
-   >   status = 302
-   >   force = true
-   > ```
+`/admin/` → **Portfolio Photos → New Photo** → choose the image, optional caption +
+category → **Save**. It goes to the pending queue for your approval.
 
 ---
 
 ## How the portfolio data is stored
 
-- Each photo is a small JSON file in **`content/portfolio/`** (e.g. `2026-06-03-sunset.json`)
-  holding the Cloudinary image URL, caption, category, sort order, and date.
-- Your **19 original portraits** were migrated into this folder (`portrait-01.json` …
-  `portrait-19.json`) and still point at the local images in `public/images/portraits/`,
-  so nothing was lost — you can now reorder or delete them from `/admin` too.
+- Each photo is a small JSON file in **`content/portfolio/`** (image path, caption,
+  category, sort order, date).
+- Your original **19 portraits** live there too (`portrait-01.json` … `portrait-19.json`),
+  pointing at `public/images/portraits/`. You can reorder or delete them from `/admin`.
+- New uploads point at `public/images/uploads/`.
 - The Portfolio page (`src/app/portfolio/page.tsx`) reads every entry at build time via
-  `src/lib/portfolio.ts` and sorts by the **order** field (lower = first).
+  `src/lib/portfolio.ts`, sorted by the **order** field (lower = first).
+
+## Keeping the repo healthy
+
+Because photos are committed to the repo, ask photographers to upload **reasonably sized
+JPEGs** (e.g. long edge ≤ 2500px, a few MB max) rather than full 40MP RAW exports. That
+keeps Netlify builds fast. If the repo ever gets large, the fix is to move storage to an
+external host — ask and I can wire that up.
 
 ## Categories
 
-Photographers pick a category per photo (Portraits / Weddings / Commercial / Events).
-They're stored but not yet used to filter the gallery. If you later want category
-filter tabs on the Portfolio page, that's a small follow-up.
+Photos carry a category (Portraits / Weddings / Commercial / Events). It's stored but not
+yet used to filter the gallery — adding filter tabs is a small follow-up if you want it.
