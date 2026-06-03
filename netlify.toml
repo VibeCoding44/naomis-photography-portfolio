@@ -5,18 +5,8 @@
 [build.environment]
   NODE_VERSION = "22"
 
-# Scoped policy for the CMS upload portal. Decap CMS loads its bundle from a
-# CDN and talks to GitHub / DecapBridge / Cloudinary, so /admin needs a more
-# permissive CSP than the public site. Declared BEFORE /* so it takes
-# precedence for the admin route.
-[[headers]]
-  for = "/admin/*"
-  [headers.values]
-    Content-Security-Policy = "default-src 'self' https: data: blob:; script-src 'self' https: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; img-src 'self' https: data: blob:; font-src 'self' https: data:; connect-src 'self' https:; frame-src 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'none';"
-    X-Frame-Options = "DENY"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-
+# Public site policy (strict). Listed FIRST so the more-specific /admin/*
+# rule below is the LAST match for admin paths and wins there.
 [[headers]]
   for = "/*"
   [headers.values]
@@ -25,3 +15,15 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+
+# Scoped policy for the CMS upload portal. Decap CMS loads its bundle from a
+# CDN and talks to GitHub / DecapBridge / Cloudinary, so /admin needs a more
+# permissive CSP. Declared LAST so it overrides /* for the admin route
+# (Netlify applies the last matching headers rule).
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Content-Security-Policy = "default-src 'self' https: data: blob:; script-src 'self' https: 'unsafe-inline' 'unsafe-eval'; style-src 'self' https: 'unsafe-inline'; img-src 'self' https: data: blob:; font-src 'self' https: data:; connect-src 'self' https:; frame-src 'self' https:; object-src 'none'; base-uri 'self'; frame-ancestors 'none';"
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
