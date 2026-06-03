@@ -1,6 +1,9 @@
 import { GalleryGrid } from "@/components/ui/gallery-grid";
+import { getPortfolioItems } from "@/lib/portfolio";
 
 export default function PortfolioPage() {
+    const items = getPortfolioItems();
+
     return (
         <main className="pt-32 pb-20 min-h-screen bg-[#0a0a0a]">
             <div className="container mx-auto px-6">
@@ -11,7 +14,7 @@ export default function PortfolioPage() {
                     </p>
                 </div>
 
-                <GalleryGrid />
+                <GalleryGrid items={items} />
             </div>
         </main>
     );
