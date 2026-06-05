@@ -17,8 +17,8 @@ export default function AboutPage() {
                     {/* Bio Photo */}
                     <div className="w-full md:w-1/2 relative h-[400px] md:h-[600px] overflow-hidden rounded-sm">
                         <Image
-                            src="/images/about-photo.jpg"
-                            alt="About Us"
+                            src="/images/about-photo.webp"
+                            alt="Cute Company Photography — the photographer behind the studio in Plant City, FL"
                             fill
                             className="object-cover object-top"
                             sizes="(max-width: 768px) 100vw, 50vw"
