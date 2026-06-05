@@ -1,6 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
 import Link from "next/link";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "Contact & Booking | Plant City & Tampa Photographer",
+    description: "Book your wedding, portrait, or commercial session with Cute Company Photography in Plant City and Tampa, FL. Get in touch to start planning your shoot.",
+    alternates: {
+        canonical: "/contact",
+    },
+};
 
 export default function ContactPage() {
     return (

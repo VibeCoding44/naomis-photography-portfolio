@@ -7,6 +7,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Photography Services & Packages | Plant City & Tampa",
     description: "Tailored photography packages for Weddings, Commercial Branding, and Editorial Portraits in Plant City and Tampa Bay.",
+    alternates: {
+        canonical: "/services",
+    },
 };
 
 export default function ServicesPage() {
