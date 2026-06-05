@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     description: "Premier wedding, commercial, and portrait photography serving Plant City, Tampa, and Central Florida.",
     images: [
       {
-        url: "/images/wedding-hero.jpg",
+        url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
         alt: "Cute Company Photography — fine art wedding photography in Plant City & Tampa, FL",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Cute Company Photography | Plant City & Tampa Wedding Photographer",
     description: "Premier wedding, commercial, and portrait photography serving Plant City, Tampa, and Central Florida.",
-    images: ["/images/wedding-hero.jpg"],
+    images: ["/images/og-image.jpg"],
   },
   icons: {
     icon: "/icon.png",
