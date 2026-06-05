@@ -11,8 +11,8 @@ export function Hero() {
             {/* Background Image */}
             <div className="absolute inset-0">
                 <Image
-                    src="/images/wedding-hero.jpg"
-                    alt="Hero Background"
+                    src="/images/wedding-hero.webp"
+                    alt="Fine art wedding photography by Cute Company Photography in Plant City & Tampa, FL"
                     fill
                     className="object-cover object-center"
                     priority

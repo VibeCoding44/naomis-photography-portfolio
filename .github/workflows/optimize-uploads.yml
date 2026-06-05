@@ -1,0 +1,53 @@
+name: Optimize uploaded photos
+
+# When a photo is published via Decap CMS, its original (often a multi-MB phone
+# photo) is committed to public/images/uploads/. This converts it to WebP and
+# repoints the portfolio entry, so CMS uploads get the same optimization as the
+# rest of the site. Unlike prune-uploads, this intentionally does NOT use
+# [skip ci]: the conversion changes rendered output, so we want Netlify to
+# rebuild with the optimized image.
+on:
+  push:
+    branches: [main]
+    paths:
+      - "public/images/uploads/**"
+
+permissions:
+  contents: write
+
+# Don't run concurrently with itself; queue instead of cancelling so no upload
+# is skipped.
+concurrency:
+  group: optimize-uploads
+  cancel-in-progress: false
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+
+      # sharp isn't a declared project dependency (it's transitive via Next),
+      # so install it explicitly for this job.
+      - name: Install sharp
+        run: npm install --no-save sharp@^0.33
+
+      - name: Convert new uploads to WebP and repoint entries
+        run: node scripts/optimize-uploads.mjs
+
+      - name: Commit optimized images (if anything changed)
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -A
+            git commit -m "chore: optimize uploaded photos to WebP"
+            # Re-sync in case prune-uploads pushed for the same change.
+            git pull --rebase origin main
+            git push
+          else
+            echo "Nothing to optimize."
+          fi

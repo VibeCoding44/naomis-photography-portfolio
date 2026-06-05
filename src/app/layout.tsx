@@ -3,6 +3,7 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/navbar";
 import { Footer } from "@/components/ui/footer";
+import { SITE_URL } from "@/lib/constants";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -15,6 +16,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(SITE_URL),
   title: {
     template: "%s | Cute Company Photography",
     default: "Cute Company Photography | Plant City & Tampa Wedding Photographer",
@@ -23,8 +25,24 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://cutecocompany.com",
+    url: SITE_URL,
     siteName: "Cute Company Photography",
+    title: "Cute Company Photography | Plant City & Tampa Wedding Photographer",
+    description: "Premier wedding, commercial, and portrait photography serving Plant City, Tampa, and Central Florida.",
+    images: [
+      {
+        url: "/images/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Cute Company Photography — fine art wedding photography in Plant City & Tampa, FL",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Cute Company Photography | Plant City & Tampa Wedding Photographer",
+    description: "Premier wedding, commercial, and portrait photography serving Plant City, Tampa, and Central Florida.",
+    images: ["/images/og-image.jpg"],
   },
   icons: {
     icon: "/icon.png",

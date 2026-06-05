@@ -7,6 +7,9 @@ import { Metadata } from "next";
 export const metadata: Metadata = {
     title: "Photography Services & Packages | Plant City & Tampa",
     description: "Tailored photography packages for Weddings, Commercial Branding, and Editorial Portraits in Plant City and Tampa Bay.",
+    alternates: {
+        canonical: "/services",
+    },
 };
 
 export default function ServicesPage() {
@@ -27,7 +30,7 @@ export default function ServicesPage() {
                     <div className="group space-y-6">
                         <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-white/5">
                             <Image
-                                src="/images/wedding-hero.jpg"
+                                src="/images/wedding-hero.webp"
                                 alt="Wedding Photography"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -51,7 +54,7 @@ export default function ServicesPage() {
                     <div className="group space-y-6">
                         <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-white/5">
                             <Image
-                                src="/images/commercial.jpg"
+                                src="/images/commercial.webp"
                                 alt="Commercial Photography"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"
@@ -75,7 +78,7 @@ export default function ServicesPage() {
                     <div className="group space-y-6">
                         <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-white/5">
                             <Image
-                                src="/images/services-midshot.jpg"
+                                src="/images/services-midshot.webp"
                                 alt="Portrait Photography"
                                 fill
                                 className="object-cover transition-transform duration-700 group-hover:scale-105"

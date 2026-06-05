@@ -1,3 +1,5 @@
+export const SITE_URL = "https://cutecompanyphotography.com";
+
 export const NAV_LINKS = [
     { name: "Portfolio", href: "/portfolio" },
     { name: "About", href: "/about" },

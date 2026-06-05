@@ -1,4 +1,13 @@
 import Image from "next/image";
+import type { Metadata } from "next";
+
+export const metadata: Metadata = {
+    title: "About the Photographer | Plant City & Tampa",
+    description: "Meet the photographer behind Cute Company Photography — a Plant City and Tampa-based studio crafting fine art wedding, portrait, and commercial imagery across Central Florida.",
+    alternates: {
+        canonical: "/about",
+    },
+};
 
 export default function AboutPage() {
     return (
@@ -8,8 +17,8 @@ export default function AboutPage() {
                     {/* Bio Photo */}
                     <div className="w-full md:w-1/2 relative h-[400px] md:h-[600px] overflow-hidden rounded-sm">
                         <Image
-                            src="/images/about-photo.jpg"
-                            alt="About Us"
+                            src="/images/about-photo.webp"
+                            alt="Cute Company Photography — the photographer behind the studio in Plant City, FL"
                             fill
                             className="object-cover object-top"
                             sizes="(max-width: 768px) 100vw, 50vw"
