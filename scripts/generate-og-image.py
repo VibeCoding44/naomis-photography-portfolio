@@ -12,7 +12,7 @@ Fonts (Playfair Display + Inter, OFL) are fetched to /tmp/ogfonts if missing.
 
 import os
 import urllib.request
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw, ImageFont, ImageFilter
 
 W, H = 1200, 630
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -37,6 +37,7 @@ def ensure_fonts():
 
 def cover(img, w, h):
     """Scale + center-crop to exactly w x h (CSS object-fit: cover)."""
+    img_orig_w = img.width
     src_ratio = img.width / img.height
     if src_ratio > w / h:
         new_h = h
@@ -45,6 +46,10 @@ def cover(img, w, h):
         new_w = w
         new_h = round(w / src_ratio)
     img = img.resize((new_w, new_h), Image.LANCZOS)
+    # The site's source is only 1024px wide, so reaching 1200px means a mild
+    # upscale that softens detail. An unsharp mask restores apparent crispness.
+    if new_w > img_orig_w:
+        img = img.filter(ImageFilter.UnsharpMask(radius=2.2, percent=140, threshold=2))
     left = (new_w - w) // 2
     top = (new_h - h) // 2
     return img.crop((left, top, left + w, top + h))
