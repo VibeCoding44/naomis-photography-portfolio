@@ -3,7 +3,8 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/navbar";
 import { Footer } from "@/components/ui/footer";
-import { SITE_URL } from "@/lib/constants";
+import { SITE_URL, GA_MEASUREMENT_ID } from "@/lib/constants";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -64,6 +65,7 @@ export default function RootLayout({
         {children}
         <Footer />
       </body>
+      {GA_MEASUREMENT_ID && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
     </html>
   );
 }

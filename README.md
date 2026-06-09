@@ -25,6 +25,16 @@ bun dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Analytics
+
+Google Analytics 4 is wired up via [`@next/third-parties`](https://nextjs.org/docs/app/guides/third-party-libraries#google-analytics). It only loads when a measurement ID is provided:
+
+- Set the environment variable `NEXT_PUBLIC_GA_ID` to your GA4 measurement ID (e.g. `G-XXXXXXXXXX`).
+- For production, add it under **Netlify → Site settings → Environment variables**, then redeploy.
+- For local testing: `NEXT_PUBLIC_GA_ID=G-XXXXXXXXXX npm run build`.
+
+Without the variable set, no analytics scripts are emitted. The `googletagmanager.com` and `google-analytics.com` domains are already allow-listed in the `netlify.toml` Content-Security-Policy.
+
 ## Tech Stack
 
 - [Next.js](https://nextjs.org/)

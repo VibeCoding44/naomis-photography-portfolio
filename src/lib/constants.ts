@@ -1,5 +1,9 @@
 export const SITE_URL = "https://cutecompanyphotography.com";
 
+// Google Analytics 4 measurement ID (e.g. "G-XXXXXXXXXX").
+// Set NEXT_PUBLIC_GA_ID in the environment / Netlify build settings.
+export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
+
 export const NAV_LINKS = [
     { name: "Portfolio", href: "/portfolio" },
     { name: "About", href: "/about" },
