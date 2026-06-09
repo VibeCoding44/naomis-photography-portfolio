@@ -5,6 +5,17 @@
 [build.environment]
   NODE_VERSION = "22"
 
+# Force the default Netlify subdomain to the canonical custom domain. Netlify's
+# primary-domain auto-redirect is unreliable, so we make it explicit. Matched on
+# host, so requests to cutecompanyphotography.com are unaffected (no loop).
+# force = true is required because every path serves a static file, which would
+# otherwise shadow the redirect.
+[[redirects]]
+  from = "https://naomis-photography-portfolio-v1.netlify.app/*"
+  to = "https://cutecompanyphotography.com/:splat"
+  status = 301
+  force = true
+
 # Public site policy (strict). Listed FIRST so the more-specific /admin/*
 # rule below is the LAST match for admin paths and wins there.
 [[headers]]
