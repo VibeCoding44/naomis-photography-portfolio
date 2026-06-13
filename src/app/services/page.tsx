@@ -142,7 +142,7 @@ export default function ServicesPage() {
                     <div className="border border-white/10 rounded-sm p-8 text-center">
                         <h3 className="font-serif text-2xl mb-2">Portrait & Family</h3>
                         <p className="text-white/80 text-lg mb-1">Custom quote</p>
-                        <p className="text-white/50 font-light text-sm">In-studio or on-location sessions across Tampa Bay.</p>
+                        <p className="text-white/50 font-light text-sm">On-location sessions across Tampa Bay and Central Florida.</p>
                     </div>
                     <div className="border border-white/10 rounded-sm p-8 text-center">
                         <h3 className="font-serif text-2xl mb-2">Commercial & Branding</h3>

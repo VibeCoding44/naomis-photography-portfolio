@@ -4,12 +4,12 @@ import { Hero } from "@/components/ui/hero";
 import { Philosophy } from "@/components/ui/philosophy";
 import { CONTACT_INFO, SITE_URL, SOCIAL_LINKS } from "@/lib/constants";
 
-// Google Business Profile map link (derived from the studio's place ID).
+// Google Business Profile map link (derived from the business's place ID).
 const GBP_MAP = "https://www.google.com/maps/place/?q=place_id:ChIJszQJrAhNwgwRx11eqz5r-Ow";
 
 export const metadata: Metadata = {
   title: "Plant City & Tampa Wedding Photographer | Fine Art & Editorial",
-  description: "Cute Company Photography is a premier Plant City and Tampa-based photography studio specializing in fine art wedding, commercial, and family portrait photography.",
+  description: "Cute Company Photography is a family-owned, Plant City and Tampa-based photography team specializing in fine art wedding, commercial, and family portrait photography across Central Florida.",
   alternates: {
     canonical: "/",
   },
@@ -46,6 +46,14 @@ export default function Home() {
     ],
     "hasMap": GBP_MAP,
     "priceRange": "$$$",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday", "Tuesday", "Thursday", "Friday", "Saturday"],
+        "opens": "06:30",
+        "closes": "20:30"
+      }
+    ],
     "makesOffer": [
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Wedding & Elopement Photography", "serviceType": "Wedding photography" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Commercial & Branding Photography", "serviceType": "Commercial photography" } },
@@ -70,9 +78,9 @@ export default function Home() {
           </h2>
           <div className="space-y-6 text-white/60 font-light leading-relaxed text-lg">
             <p>
-              Cute Company Photography is a family-owned studio based in Plant City, Florida,
-              serving couples and families across Tampa, Lakeland, Brandon, and all of Central
-              Florida. Run by four sisters who grew up as their family&apos;s &ldquo;memory
+              Cute Company Photography is a family-owned photography team based in Plant City,
+              Florida, serving couples and families across Tampa, Lakeland, Brandon, and all of
+              Central Florida. Run by four sisters who grew up as their family&apos;s &ldquo;memory
               keepers,&rdquo; we photograph the moments most worth holding onto — wedding days,
               growing families, milestones, and the quiet in-between.
             </p>
