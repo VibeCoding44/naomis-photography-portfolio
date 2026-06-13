@@ -28,7 +28,9 @@ export function GalleryGrid({ items }: { items: PortfolioItem[] }) {
                 >
                     <Image
                         src={item.image}
-                        alt={label || `Portfolio image ${i + 1}`}
+                        alt={label
+                            ? `${label} — fine art photography by Cute Company Photography in Plant City & Tampa, FL`
+                            : `Fine art wedding, portrait & family photography by Cute Company Photography in Plant City & Tampa Bay, FL`}
                         width={800}
                         height={600}
                         className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
