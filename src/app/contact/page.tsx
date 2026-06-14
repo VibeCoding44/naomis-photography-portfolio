@@ -29,6 +29,12 @@ export default function ContactPage() {
                                 <p className="text-xl break-all">{CONTACT_INFO.email}</p>
                             </div>
                             <div>
+                                <h3 className="text-sm uppercase tracking-widest text-white/40 mb-2">Phone</h3>
+                                <p className="text-xl">
+                                    <a href={`tel:${CONTACT_INFO.phoneE164}`} className="hover:text-white transition-colors border-b border-transparent hover:border-white">{CONTACT_INFO.phone}</a>
+                                </p>
+                            </div>
+                            <div>
                                 <h3 className="text-sm uppercase tracking-widest text-white/40 mb-2">Location</h3>
                                 <p className="text-xl">{CONTACT_INFO.location}</p>
                             </div>
