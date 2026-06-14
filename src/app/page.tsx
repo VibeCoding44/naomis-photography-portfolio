@@ -23,6 +23,7 @@ export default function Home() {
     "image": `${SITE_URL}/images/wedding-hero.jpg`,
     "description": "Premier wedding, commercial, and portrait photography serving Plant City, Tampa, and Central Florida.",
     "email": CONTACT_INFO.email,
+    "telephone": CONTACT_INFO.phoneE164,
     "address": {
       "@type": "PostalAddress",
       "addressLocality": "Plant City",
