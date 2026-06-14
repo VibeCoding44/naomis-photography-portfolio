@@ -61,6 +61,13 @@ export default function Home() {
     ]
   };
 
+  // Real client testimonials. Add entries as genuine client reviews come in
+  // (e.g. { quote: "…", name: "First L.", detail: "Wedding · 2026" }).
+  // Left empty intentionally — we do not display the owner's own Google review,
+  // and we do not add aggregateRating schema (first-party self-rating violates
+  // Google's guidelines; the star rating below is display-only and links to GBP).
+  const TESTIMONIALS: { quote: string; name: string; detail?: string }[] = [];
+
   return (
     <main className="min-h-screen bg-[#0a0a0a]">
       <script
@@ -97,6 +104,43 @@ export default function Home() {
               {" "}to check availability for your date.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* Social proof — display-only Google rating (NOT aggregateRating schema) + client testimonials */}
+      <section className="py-24 md:py-32 bg-[#0f0f0f] text-[#ededed] border-t border-white/5">
+        <div className="container mx-auto px-6 max-w-3xl text-center">
+          <div className="flex items-center justify-center gap-1 text-amber-400 text-2xl" aria-hidden="true">
+            ★★★★★
+          </div>
+          <p className="mt-4 font-serif text-2xl md:text-3xl">Rated 5.0 on Google</p>
+          <p className="mt-3 text-white/60 font-light">
+            Loved by the couples and families we&apos;ve photographed across Plant City &amp; Tampa Bay.
+          </p>
+          <a
+            href={GBP_MAP}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-6 inline-block text-white/90 underline underline-offset-4 decoration-white/30 hover:decoration-white"
+          >
+            Read our reviews on Google
+          </a>
+
+          {TESTIMONIALS.length > 0 && (
+            <div className="mt-16 grid gap-8 md:grid-cols-2 text-left">
+              {TESTIMONIALS.map((t, i) => (
+                <figure key={i} className="border border-white/10 rounded-lg p-8 bg-[#0a0a0a]">
+                  <blockquote className="text-white/70 font-light leading-relaxed text-lg">
+                    &ldquo;{t.quote}&rdquo;
+                  </blockquote>
+                  <figcaption className="mt-5 text-sm text-white/50">
+                    — {t.name}
+                    {t.detail ? <span className="text-white/30"> · {t.detail}</span> : null}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </main>
