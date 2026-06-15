@@ -48,6 +48,9 @@ export const metadata: Metadata = {
   icons: {
     icon: "/icon.png",
   },
+  verification: {
+    other: { "p:domain_verify": "971ce2a3a32a8058cb411ba30087b86e" },
+  },
 };
 
 export default function RootLayout({
