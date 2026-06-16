@@ -1,5 +1,6 @@
 import { SOCIAL_LINKS } from "@/lib/constants"
 import { Instagram } from "lucide-react"
+import Link from "next/link"
 
 export function Footer() {
     return (
@@ -11,6 +12,7 @@ export function Footer() {
                 </div>
 
                 <div className="flex items-center gap-6">
+                    <Link href="/privacy" className="text-sm hover:text-white transition-colors">Privacy</Link>
                     <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Cute Company Photography on Instagram" className="hover:text-white transition-colors"><Instagram size={20} /></a>
                 </div>
             </div>
