@@ -4,6 +4,10 @@ export const SITE_URL = "https://cutecompanyphotography.com";
 // Set NEXT_PUBLIC_GA_ID in the environment / Netlify build settings.
 export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
 
+// Google Tag Manager container ID. Public by design (appears in page source).
+// Manage Pinterest / GA / conversion tags inside the GTM dashboard, not here.
+export const GTM_CONTAINER_ID = "GTM-MHXCT2RK";
+
 export const NAV_LINKS = [
     { name: "Portfolio", href: "/portfolio" },
     { name: "About", href: "/about" },

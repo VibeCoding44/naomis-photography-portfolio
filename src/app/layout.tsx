@@ -3,8 +3,8 @@ import { Playfair_Display, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/navbar";
 import { Footer } from "@/components/ui/footer";
-import { SITE_URL, GA_MEASUREMENT_ID } from "@/lib/constants";
-import { GoogleAnalytics } from "@next/third-parties/google";
+import { SITE_URL, GA_MEASUREMENT_ID, GTM_CONTAINER_ID } from "@/lib/constants";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -60,6 +60,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      {GTM_CONTAINER_ID && <GoogleTagManager gtmId={GTM_CONTAINER_ID} />}
       <body
         suppressHydrationWarning
         className={`${playfair.variable} ${inter.variable} antialiased bg-[#0a0a0a] text-[#ededed]`}
