@@ -80,3 +80,43 @@ collections:
           - { label: Events, value: events }
       - { name: order, label: "Sort order (lower shows first)", widget: number, value_type: int, default: 100, required: false }
       - { name: date, label: "Date taken (optional)", widget: datetime, required: false, default: "" }
+
+  - name: sessions
+    label: Sessions & Stories
+    label_singular: Story
+    description: "Write a short story about a real wedding, engagement, or portrait session. Add the venue/location in the title for SEO (e.g. 'Engagement Session at Edward Medard Park')."
+    folder: content/sessions
+    create: true
+    delete: true
+    extension: json
+    format: json
+    slug: "{{slug}}"
+    summary: "{{title}}"
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: "Title (put the venue/city in it for SEO)", widget: string }
+      - { name: date, label: "Date of the session", widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
+      - { name: location, label: "Location / city (e.g. Plant City, FL)", widget: string, required: false }
+      - { name: venue, label: "Venue name (optional)", widget: string, required: false }
+      - name: category
+        label: Category
+        widget: select
+        default: weddings
+        options:
+          - { label: Weddings, value: weddings }
+          - { label: Engagements, value: engagements }
+          - { label: Portraits, value: portraits }
+          - { label: Family, value: family }
+          - { label: Commercial, value: commercial }
+          - { label: Events, value: events }
+      - { name: excerpt, label: "Short summary (1–2 sentences — shows on cards & Google/Pinterest)", widget: text }
+      - { name: coverImage, label: "Cover photo", widget: image }
+      - name: gallery
+        label: "Photo gallery (optional)"
+        widget: list
+        required: false
+        summary: "{{fields.alt}}"
+        fields:
+          - { name: image, label: Photo, widget: image }
+          - { name: alt, label: "Description of the photo (for accessibility & SEO)", widget: string, required: false }
+      - { name: body, label: "The story", widget: markdown }
