@@ -94,10 +94,10 @@ collections:
     summary: "{{title}}"
     sortable_fields: [date, title]
     fields:
-      - { name: title, label: "Title (put the venue/city in it for SEO)", widget: string }
+      - { name: title, label: "Title", widget: string, hint: "Put the venue or city in the title — it's how couples find you on Google. e.g. 'Engagement Session at Edward Medard Park, Plant City'." }
       - { name: date, label: "Date of the session", widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
-      - { name: location, label: "Location / city (e.g. Plant City, FL)", widget: string, required: false }
-      - { name: venue, label: "Venue name (optional)", widget: string, required: false }
+      - { name: location, label: "Location / city", widget: string, required: false, hint: "e.g. Plant City, FL  ·  Tampa, FL  ·  Lakeland, FL" }
+      - { name: venue, label: "Venue name (optional)", widget: string, required: false, hint: "The park, barn, church, or venue — leave blank if it was a roaming session." }
       - name: category
         label: Category
         widget: select
@@ -109,14 +109,33 @@ collections:
           - { label: Family, value: family }
           - { label: Commercial, value: commercial }
           - { label: Events, value: events }
-      - { name: excerpt, label: "Short summary (1–2 sentences — shows on cards & Google/Pinterest)", widget: text }
-      - { name: coverImage, label: "Cover photo", widget: image }
+      - { name: excerpt, label: "Short summary", widget: text, hint: "1–2 warm sentences. This shows on the Sessions page, in Google results, and on Pinterest — make it inviting, not technical." }
+      - { name: coverImage, label: "Cover photo", widget: image, hint: "Your strongest image — it's the first thing people see and what shows when the post is shared." }
       - name: gallery
         label: "Photo gallery (optional)"
         widget: list
         required: false
         summary: "{{fields.alt}}"
+        label_singular: "Photo"
+        hint: "Add a handful of favorites from the session. A short description on each helps Google Images find them."
         fields:
           - { name: image, label: Photo, widget: image }
-          - { name: alt, label: "Description of the photo (for accessibility & SEO)", widget: string, required: false }
-      - { name: body, label: "The story", widget: markdown }
+          - { name: alt, label: "Describe the photo", widget: string, required: false, hint: "e.g. 'Bride laughing during first look at golden hour'." }
+      - name: body
+        label: "The story"
+        widget: markdown
+        hint: "Replace the italic prompts below with your own words. Keep the headings and the last paragraph (those links help you show up on Google). 4–6 short paragraphs is plenty — write like you're telling a friend."
+        default: |
+          *Open with one or two sentences that set the scene — the place, the light, and how the day felt.*
+
+          ## The Day
+
+          *Who were you photographing, and what was happening? A wedding, an engagement, a family session? What were they like together?*
+
+          ## A Moment We Loved
+
+          *Pick one small moment that stuck with you and describe it in a sentence or two.*
+
+          ## Planning Your Own Session
+
+          Dreaming up your own session in Plant City or Tampa Bay? Browse our [portfolio](/portfolio), explore our [services & packages](/services), and [get in touch](/contact) to check your date.
