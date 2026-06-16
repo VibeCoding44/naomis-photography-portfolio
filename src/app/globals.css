@@ -24,3 +24,52 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-serif);
 }
+
+/* Markdown body of a Sessions/Stories post (output of `marked`). */
+.prose-session h2 {
+  font-size: 1.75rem;
+  line-height: 1.25;
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+  color: #ededed;
+}
+.prose-session h3 {
+  font-size: 1.35rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: #ededed;
+}
+.prose-session p {
+  margin-bottom: 1.5rem;
+}
+.prose-session a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-color: rgba(255, 255, 255, 0.3);
+}
+.prose-session a:hover {
+  text-decoration-color: rgba(255, 255, 255, 0.9);
+}
+.prose-session ul,
+.prose-session ol {
+  margin: 0 0 1.5rem 1.25rem;
+  list-style: disc;
+}
+.prose-session ol {
+  list-style: decimal;
+}
+.prose-session li {
+  margin-bottom: 0.5rem;
+}
+.prose-session strong {
+  color: #ededed;
+  font-weight: 600;
+}
+.prose-session blockquote {
+  border-left: 2px solid rgba(255, 255, 255, 0.2);
+  padding-left: 1.25rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.55);
+  margin-bottom: 1.5rem;
+}
