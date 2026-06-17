@@ -69,26 +69,37 @@ export default async function SessionPostPage({
     const image = post.coverImage.startsWith("http") ? post.coverImage : `${SITE_URL}${post.coverImage}`;
     const bodyHtml = marked.parse(post.body) as string;
 
-    const jsonLd = {
-        "@context": "https://schema.org",
-        "@type": "BlogPosting",
-        "headline": post.title,
-        "description": post.excerpt,
-        "image": image,
-        "datePublished": post.date || undefined,
-        "author": {
-            "@type": "Organization",
-            "name": "Cute Company Photography",
-            "url": SITE_URL,
+    const jsonLd = [
+        {
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            "headline": post.title,
+            "description": post.excerpt,
+            "image": image,
+            "datePublished": post.date || undefined,
+            "author": {
+                "@type": "Organization",
+                "name": "Cute Company Photography",
+                "url": SITE_URL,
+            },
+            "publisher": {
+                "@type": "Organization",
+                "name": "Cute Company Photography",
+                "logo": { "@type": "ImageObject", "url": `${SITE_URL}/images/og-image.jpg` },
+            },
+            "mainEntityOfPage": { "@type": "WebPage", "@id": url },
+            ...(post.location ? { "locationCreated": { "@type": "Place", "name": post.location } } : {}),
         },
-        "publisher": {
-            "@type": "Organization",
-            "name": "Cute Company Photography",
-            "logo": { "@type": "ImageObject", "url": `${SITE_URL}/images/og-image.jpg` },
+        {
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                { "@type": "ListItem", "position": 1, "name": "Home", "item": SITE_URL },
+                { "@type": "ListItem", "position": 2, "name": "Sessions & Stories", "item": `${SITE_URL}/sessions` },
+                { "@type": "ListItem", "position": 3, "name": post.title, "item": url },
+            ],
         },
-        "mainEntityOfPage": { "@type": "WebPage", "@id": url },
-        ...(post.location ? { "locationCreated": { "@type": "Place", "name": post.location } } : {}),
-    };
+    ];
 
     const meta = [post.location, formatDate(post.date)].filter(Boolean).join(" · ");
     const gallery = (post.gallery ?? []).filter((g) => g.image && g.image !== post.coverImage);

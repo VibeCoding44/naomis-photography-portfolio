@@ -50,6 +50,10 @@ const AREAS = ["Plant City", "Tampa", "Lakeland", "Brandon", "Riverview", "Valri
 
 const FAQS = [
     {
+        q: "How much does a photography session cost in Plant City and Tampa?",
+        a: "Every booking is tailored to your story, so pricing is shared as a custom quote built around your date, location, and the coverage you need. Reach out with your details and you'll receive a personalized collection guide for portrait, branding, or wedding photography across Tampa Bay and Central Florida.",
+    },
+    {
         q: "How far in advance should I book a wedding photographer?",
         a: "For weddings, 9–12 months out is ideal, especially for peak Florida season (October–April). Portrait and branding sessions can often be scheduled within a few weeks — but popular weekends fill quickly, so reach out as early as you can.",
     },
@@ -58,14 +62,38 @@ const FAQS = [
         a: "Yes. Sessions and weddings throughout Central Florida are welcome, and travel beyond the Tampa Bay area is available — just include your location when you inquire and we'll include any travel details in your custom quote.",
     },
     {
+        q: "Do you require a deposit to reserve my date?",
+        a: "Yes. Your date is reserved once a deposit is placed, after which we build a simple plan together — timeline, locations around Tampa Bay, outfits, and any must-have shots — so the day itself feels effortless.",
+    },
+    {
+        q: "What's included with my photos?",
+        a: "You'll receive a hand-edited, high-resolution gallery delivered through a private online portal with personal printing rights — ready to share, print, and keep for a lifetime.",
+    },
+    {
         q: "When will we receive our photos?",
         a: "Portrait and branding galleries are typically delivered within 1–2 weeks, and weddings within 4–6 weeks. You'll also receive a small set of preview images shortly after your session or wedding day.",
     },
 ];
 
+// FAQPage structured data, generated from the same FAQS array rendered below so
+// the visible content and the markup can never drift (a Google requirement).
+const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": FAQS.map((f) => ({
+        "@type": "Question",
+        "name": f.q,
+        "acceptedAnswer": { "@type": "Answer", "text": f.a },
+    })),
+};
+
 export default function ServicesPage() {
     return (
         <main className="min-h-screen bg-[#0a0a0a] text-[#ededed]">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+            />
             {/* Hero Section */}
             <section className="pt-40 pb-20 px-6 container mx-auto text-center">
                 <h1 className="font-serif text-5xl md:text-7xl mb-6">Curated Photography Services</h1>
