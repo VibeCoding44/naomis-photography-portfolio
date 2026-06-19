@@ -133,7 +133,7 @@ export default async function SessionPostPage({
                         alt={`${post.title} — photography by Cute Company Photography in ${post.location || "Central Florida"}`}
                         fill
                         priority
-                        className="object-cover"
+                        className="object-cover object-[50%_25%]"
                         sizes="(max-width: 1024px) 100vw, 896px"
                     />
                 </div>
