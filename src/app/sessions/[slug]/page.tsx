@@ -34,7 +34,7 @@ export async function generateMetadata({
     const image = post.coverImage.startsWith("http") ? post.coverImage : `${SITE_URL}${post.coverImage}`;
 
     return {
-        title: `${post.title} | Cute Company Photography`,
+        title: post.title,
         description: post.excerpt,
         alternates: { canonical: `/sessions/${post.slug}` },
         openGraph: {

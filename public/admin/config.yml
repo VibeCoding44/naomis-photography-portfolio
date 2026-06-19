@@ -75,6 +75,7 @@ collections:
         default: portraits
         options:
           - { label: Portraits, value: portraits }
+          - { label: Engagements, value: engagements }
           - { label: Weddings, value: weddings }
           - { label: Commercial, value: commercial }
           - { label: Events, value: events }
