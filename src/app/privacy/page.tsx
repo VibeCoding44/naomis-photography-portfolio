@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { CONTACT_INFO } from "@/lib/constants";
 
 export const metadata: Metadata = {
-    title: "Privacy Policy | Cute Company Photography",
+    title: "Privacy Policy",
     description:
         "How Cute Company Photography collects, uses, and protects your information, including analytics and advertising cookies used on this website.",
     alternates: {
