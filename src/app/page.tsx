@@ -152,11 +152,10 @@ export default function Home() {
               href="https://www.weddingwire.com/biz/cute-company-photography/c8288530d2001016.html"
               target="_blank"
               rel="nofollow noopener noreferrer"
-              aria-label="Read our reviews on WeddingWire"
+              aria-label="Find Cute Company Photography on WeddingWire"
               className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-white/80 transition-colors hover:bg-white/10 hover:text-white"
             >
-              <span className="text-amber-400 tracking-tight" aria-hidden="true">★★★★★</span>
-              <span>Reviewed on WeddingWire</span>
+              <span>Find us on WeddingWire</span>
               <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
             </a>
           </div>

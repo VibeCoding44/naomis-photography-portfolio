@@ -39,11 +39,10 @@ export function Footer() {
                             href="https://www.weddingwire.com/biz/cute-company-photography/c8288530d2001016.html"
                             target="_blank"
                             rel="nofollow noopener noreferrer"
-                            aria-label="Read our reviews on WeddingWire"
-                            className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 text-xs hover:text-white hover:border-white/30 transition-colors"
+                            aria-label="Find Cute Company Photography on WeddingWire"
+                            className="inline-flex items-center rounded-full border border-white/15 px-3 py-1.5 text-xs hover:text-white hover:border-white/30 transition-colors"
                         >
-                            <span className="text-amber-400" aria-hidden="true">★★★★★</span>
-                            <span>WeddingWire</span>
+                            WeddingWire
                         </a>
                     </div>
                 </div>
