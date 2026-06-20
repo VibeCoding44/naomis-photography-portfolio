@@ -127,7 +127,10 @@ export default function Home() {
             Read our reviews on Google
           </a>
 
-          {/* External trust badges — "As Seen on The Knot" + WeddingWire (WeddingPro). Plain <img> by design: third-party hosts, no next/image remote-host config needed. */}
+          {/* External trust badges. The Knot badge is self-hosted (public/badges) so it
+              can't be blocked by CSP or break if their CDN changes.
+              WeddingWire's seal can't be hotlinked (Akamai 403s cross-origin embeds) —
+              re-enable once we have a downloadable asset or the official widget embed. */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
             <a
               href="https://www.theknot.com/marketplace/redirect-2105977?utm_source=vendor_website&utm_medium=banner&utm_term=dbb9e11e-5670-41fe-96b7-ed1a512d3879&utm_campaign=vendor_badge_assets"
@@ -137,27 +140,10 @@ export default function Home() {
             >
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
-                src="https://d13ns7kbjmbjip.cloudfront.net/For_Your_Website/TK-badge_AsSeen.png"
+                src="/badges/the-knot-as-seen.png"
                 alt="As Seen on The Knot"
-                width={190}
-                height={80}
-                loading="lazy"
-                className="h-14 w-auto"
-              />
-            </a>
-            <a
-              href="https://www.weddingwire.com"
-              target="_blank"
-              rel="nofollow noopener noreferrer"
-              title="weddingwire.com"
-              aria-label="Reviewed on WeddingWire"
-            >
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="https://www.weddingwire.com/images/sellos/partner--pp2234610.png"
-                alt="Reviewed on WeddingWire"
-                width={125}
-                height={125}
+                width={500}
+                height={500}
                 loading="lazy"
                 className="h-14 w-auto"
               />

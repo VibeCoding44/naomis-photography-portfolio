@@ -16,7 +16,8 @@ export function Footer() {
                         <Link href="/privacy" className="text-sm hover:text-white transition-colors">Privacy</Link>
                         <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Cute Company Photography on Instagram" className="hover:text-white transition-colors"><Instagram size={20} /></a>
                     </div>
-                    {/* Trust badges — "As Seen on The Knot" + WeddingWire (WeddingPro). Plain <img>: third-party hosts. */}
+                    {/* Trust badge — "As Seen on The Knot", self-hosted (public/badges).
+                        WeddingWire seal omitted: it can't be hotlinked (Akamai 403s cross-origin). */}
                     <div className="flex items-center gap-5">
                         <a
                             href="https://www.theknot.com/marketplace/redirect-2105977?utm_source=vendor_website&utm_medium=banner&utm_term=dbb9e11e-5670-41fe-96b7-ed1a512d3879&utm_campaign=vendor_badge_assets"
@@ -26,27 +27,10 @@ export function Footer() {
                         >
                             {/* eslint-disable-next-line @next/next/no-img-element */}
                             <img
-                                src="https://d13ns7kbjmbjip.cloudfront.net/For_Your_Website/TK-badge_AsSeen.png"
+                                src="/badges/the-knot-as-seen.png"
                                 alt="As Seen on The Knot"
-                                width={190}
-                                height={80}
-                                loading="lazy"
-                                className="h-10 w-auto"
-                            />
-                        </a>
-                        <a
-                            href="https://www.weddingwire.com"
-                            target="_blank"
-                            rel="nofollow noopener noreferrer"
-                            title="weddingwire.com"
-                            aria-label="Reviewed on WeddingWire"
-                        >
-                            {/* eslint-disable-next-line @next/next/no-img-element */}
-                            <img
-                                src="https://www.weddingwire.com/images/sellos/partner--pp2234610.png"
-                                alt="Reviewed on WeddingWire"
-                                width={125}
-                                height={125}
+                                width={500}
+                                height={500}
                                 loading="lazy"
                                 className="h-10 w-auto"
                             />
