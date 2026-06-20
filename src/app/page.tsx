@@ -128,9 +128,9 @@ export default function Home() {
           </a>
 
           {/* External trust badges. The Knot badge is self-hosted (public/badges) so it
-              can't be blocked by CSP or break if their CDN changes.
-              WeddingWire's seal can't be hotlinked (Akamai 403s cross-origin embeds) —
-              re-enable once we have a downloadable asset or the official widget embed. */}
+              can't be blocked by CSP or break if their CDN changes. WeddingWire's seal
+              can't be hotlinked (Akamai 403s cross-origin) and their review widget is
+              gated to paid tiers, so we use a styled link to the storefront instead. */}
           <div className="mt-10 flex flex-wrap items-center justify-center gap-x-8 gap-y-4">
             <a
               href="https://www.theknot.com/marketplace/redirect-2105977?utm_source=vendor_website&utm_medium=banner&utm_term=dbb9e11e-5670-41fe-96b7-ed1a512d3879&utm_campaign=vendor_badge_assets"
@@ -147,6 +147,17 @@ export default function Home() {
                 loading="lazy"
                 className="h-14 w-auto"
               />
+            </a>
+            <a
+              href="https://www.weddingwire.com/biz/cute-company-photography/c8288530d2001016.html"
+              target="_blank"
+              rel="nofollow noopener noreferrer"
+              aria-label="Read our reviews on WeddingWire"
+              className="group inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-5 py-3 text-sm text-white/80 transition-colors hover:bg-white/10 hover:text-white"
+            >
+              <span className="text-amber-400 tracking-tight" aria-hidden="true">★★★★★</span>
+              <span>Reviewed on WeddingWire</span>
+              <span aria-hidden="true" className="transition-transform group-hover:translate-x-0.5">→</span>
             </a>
           </div>
 

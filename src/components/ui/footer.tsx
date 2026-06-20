@@ -16,9 +16,9 @@ export function Footer() {
                         <Link href="/privacy" className="text-sm hover:text-white transition-colors">Privacy</Link>
                         <a href={SOCIAL_LINKS.instagram} target="_blank" rel="noopener noreferrer" aria-label="Cute Company Photography on Instagram" className="hover:text-white transition-colors"><Instagram size={20} /></a>
                     </div>
-                    {/* Trust badge — "As Seen on The Knot", self-hosted (public/badges).
-                        WeddingWire seal omitted: it can't be hotlinked (Akamai 403s cross-origin). */}
-                    <div className="flex items-center gap-5">
+                    {/* Trust badges — "As Seen on The Knot" (self-hosted) + styled WeddingWire
+                        link (their seal can't be hotlinked; review widget is paid-tier only). */}
+                    <div className="flex items-center gap-4">
                         <a
                             href="https://www.theknot.com/marketplace/redirect-2105977?utm_source=vendor_website&utm_medium=banner&utm_term=dbb9e11e-5670-41fe-96b7-ed1a512d3879&utm_campaign=vendor_badge_assets"
                             target="_blank"
@@ -34,6 +34,16 @@ export function Footer() {
                                 loading="lazy"
                                 className="h-10 w-auto"
                             />
+                        </a>
+                        <a
+                            href="https://www.weddingwire.com/biz/cute-company-photography/c8288530d2001016.html"
+                            target="_blank"
+                            rel="nofollow noopener noreferrer"
+                            aria-label="Read our reviews on WeddingWire"
+                            className="inline-flex items-center gap-1.5 rounded-full border border-white/15 px-3 py-1.5 text-xs hover:text-white hover:border-white/30 transition-colors"
+                        >
+                            <span className="text-amber-400" aria-hidden="true">★★★★★</span>
+                            <span>WeddingWire</span>
                         </a>
                     </div>
                 </div>
