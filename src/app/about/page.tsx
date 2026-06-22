@@ -29,7 +29,7 @@ export default function AboutPage() {
                     {/* Text Content */}
                     <div className="w-full md:w-1/2">
                         <h1 className="font-serif text-5xl mb-8">About Us</h1>
-                        <div className="space-y-6 text-white/70 font-light leading-relaxed text-lg">
+                        <div className="space-y-6 text-[#dcdcdc] font-light leading-relaxed text-lg">
                             <p>
                                 Cute Company Photography is a family-owned photography team based in the Tampa Bay Area, dedicated to preserving what matters most—your family’s memories. Run by four sisters who grew up as the unofficial “memory keepers” of our own family, we’ve learned just how quickly time moves and how precious the in-between moments can be.
                             </p>
@@ -44,9 +44,9 @@ export default function AboutPage() {
                             </p>
                             <p>
                                 We’d love to hear your story. Take a look at our{" "}
-                                <Link href="/services" className="text-white underline underline-offset-4 decoration-white/30 hover:decoration-white">photography services</Link>
+                                <Link href="/services" className="text-[#b07a52] underline underline-offset-4 decoration-[#b07a52]/40 hover:text-[#ededed]">photography services</Link>
                                 {" "}or{" "}
-                                <Link href="/contact" className="text-white underline underline-offset-4 decoration-white/30 hover:decoration-white">reach out</Link>
+                                <Link href="/contact" className="text-[#b07a52] underline underline-offset-4 decoration-[#b07a52]/40 hover:text-[#ededed]">reach out</Link>
                                 {" "}to check availability for your date.
                             </p>
                         </div>

@@ -16,9 +16,9 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ className, variant = "solid", size = "md", ...props }, ref) => {
         const variants = {
-            solid: "bg-[#ededed] text-[#0a0a0a] hover:bg-white/90",
-            outline: "border border-[#ededed]/30 bg-transparent text-[#ededed] hover:bg-[#ededed]/10",
-            ghost: "bg-transparent text-[#ededed] hover:bg-[#ededed]/10",
+            solid: "bg-[#ededed] text-[#0a0a0a] hover:bg-[#b07a52]",
+            outline: "border border-[#ededed]/25 bg-transparent text-[#ededed] hover:border-[#b07a52] hover:text-[#b07a52]",
+            ghost: "bg-transparent text-[#ededed] hover:bg-[#ededed]/5",
         }
 
         const sizes = {

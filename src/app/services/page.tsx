@@ -97,7 +97,7 @@ export default function ServicesPage() {
             {/* Hero Section */}
             <section className="pt-40 pb-20 px-6 container mx-auto text-center">
                 <h1 className="font-serif text-5xl md:text-7xl mb-6">Curated Photography Services</h1>
-                <p className="text-white/60 text-lg max-w-2xl mx-auto font-light">
+                <p className="text-[#9a9189] text-lg max-w-2xl mx-auto font-light">
                     Fine-art wedding, portrait, family, and commercial photography for Plant City, Tampa Bay,
                     and Central Florida. Every session is tailored to your story — explore the collections below,
                     then reach out to check availability for your date.
@@ -109,7 +109,7 @@ export default function ServicesPage() {
                 <div className="grid md:grid-cols-3 gap-8">
                     {SERVICES.map((s) => (
                         <div key={s.name} className="group space-y-6">
-                            <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-white/5">
+                            <div className="relative aspect-[3/4] overflow-hidden rounded-sm bg-[#161616]">
                                 <Image
                                     src={s.image}
                                     alt={s.alt}
@@ -120,11 +120,11 @@ export default function ServicesPage() {
                             </div>
                             <div>
                                 <h2 className="font-serif text-3xl mb-4">{s.heading}</h2>
-                                <p className="text-white/60 font-light mb-6 text-sm leading-relaxed">{s.copy}</p>
-                                <ul className="space-y-2 mb-2 border-t border-white/10 pt-4">
+                                <p className="text-[#9a9189] font-light mb-6 text-sm leading-relaxed">{s.copy}</p>
+                                <ul className="space-y-2 mb-2 border-t border-[#262626] pt-4">
                                     {s.items.map((item) => (
-                                        <li key={item} className="flex items-center text-sm text-white/80">
-                                            <span className="text-white/40 mr-2">✓</span> {item}
+                                        <li key={item} className="flex items-center text-sm text-[#dcdcdc]">
+                                            <span className="text-[#b07a52] mr-2">✓</span> {item}
                                         </li>
                                     ))}
                                 </ul>
@@ -135,11 +135,11 @@ export default function ServicesPage() {
             </section>
 
             {/* The Experience / Process */}
-            <section className="py-24 bg-[#0F0F0F] border-t border-white/5">
+            <section className="py-24 bg-[#111111] border-t border-[#262626]">
                 <div className="container mx-auto px-6">
                     <div className="text-center mb-16">
                         <h2 className="font-serif text-4xl mb-4">The Experience</h2>
-                        <p className="text-white/60 max-w-2xl mx-auto font-light">
+                        <p className="text-[#9a9189] max-w-2xl mx-auto font-light">
                             Booking a photographer should feel exciting, not stressful. Here's how working
                             together unfolds, from first hello to final gallery.
                         </p>
@@ -147,9 +147,9 @@ export default function ServicesPage() {
                     <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10">
                         {PROCESS.map((p) => (
                             <div key={p.step}>
-                                <div className="font-serif text-3xl text-white/30 mb-3">{p.step}</div>
+                                <div className="font-serif text-3xl text-[#b07a52] mb-3">{p.step}</div>
                                 <h3 className="font-serif text-xl mb-3">{p.title}</h3>
-                                <p className="text-white/60 font-light text-sm leading-relaxed">{p.body}</p>
+                                <p className="text-[#9a9189] font-light text-sm leading-relaxed">{p.body}</p>
                             </div>
                         ))}
                     </div>
@@ -160,43 +160,43 @@ export default function ServicesPage() {
             <section className="py-24 container mx-auto px-6">
                 <div className="text-center mb-12">
                     <h2 className="font-serif text-4xl mb-4">Investment</h2>
-                    <p className="text-white/60 max-w-2xl mx-auto font-light">
+                    <p className="text-[#9a9189] max-w-2xl mx-auto font-light">
                         Every booking is tailored to your story, so pricing is shared in a custom quote
                         built around your date, location, and the coverage you need. Reach out and you'll
                         receive a personalized collection guide.
                     </p>
                 </div>
                 <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-                    <div className="border border-white/10 rounded-sm p-8 text-center">
+                    <div className="border border-[#262626] bg-[#111111] rounded-sm p-8 text-center">
                         <h3 className="font-serif text-2xl mb-2">Portrait & Family</h3>
-                        <p className="text-white/80 text-lg mb-1">Custom quote</p>
-                        <p className="text-white/50 font-light text-sm">On-location sessions across Tampa Bay and Central Florida.</p>
+                        <p className="text-[#ededed] text-lg mb-1">Custom quote</p>
+                        <p className="text-[#9a9189] font-light text-sm">On-location sessions across Tampa Bay and Central Florida.</p>
                     </div>
-                    <div className="border border-white/10 rounded-sm p-8 text-center">
+                    <div className="border border-[#262626] bg-[#111111] rounded-sm p-8 text-center">
                         <h3 className="font-serif text-2xl mb-2">Commercial & Branding</h3>
-                        <p className="text-white/80 text-lg mb-1">Custom quote</p>
-                        <p className="text-white/50 font-light text-sm">Half-day and full-day rates for brands and products.</p>
+                        <p className="text-[#ededed] text-lg mb-1">Custom quote</p>
+                        <p className="text-[#9a9189] font-light text-sm">Half-day and full-day rates for brands and products.</p>
                     </div>
-                    <div className="border border-white/10 rounded-sm p-8 text-center">
+                    <div className="border border-[#262626] bg-[#111111] rounded-sm p-8 text-center">
                         <h3 className="font-serif text-2xl mb-2">Weddings</h3>
-                        <p className="text-white/80 text-lg mb-1">Custom quote</p>
-                        <p className="text-white/50 font-light text-sm">Elopement, micro-wedding, and full-day collections.</p>
+                        <p className="text-[#ededed] text-lg mb-1">Custom quote</p>
+                        <p className="text-[#9a9189] font-light text-sm">Elopement, micro-wedding, and full-day collections.</p>
                     </div>
                 </div>
-                <p className="text-white/40 text-xs text-center mt-6 font-light">Tailored pricing for every booking — contact us for your personalized quote.</p>
+                <p className="text-[#6f6862] text-xs text-center mt-6 font-light">Tailored pricing for every booking — contact us for your personalized quote.</p>
             </section>
 
             {/* Areas Served */}
-            <section className="py-20 bg-[#0F0F0F] border-t border-white/5">
+            <section className="py-20 bg-[#111111] border-t border-[#262626]">
                 <div className="container mx-auto px-6 text-center">
                     <h2 className="font-serif text-3xl mb-4">Proudly Serving Tampa Bay & Central Florida</h2>
-                    <p className="text-white/60 max-w-2xl mx-auto font-light mb-8">
+                    <p className="text-[#9a9189] max-w-2xl mx-auto font-light mb-8">
                         Based in Plant City, FL and available for sessions, weddings, and commercial work
                         throughout the surrounding communities:
                     </p>
                     <ul className="flex flex-wrap justify-center gap-x-4 gap-y-2 max-w-2xl mx-auto">
                         {AREAS.map((a) => (
-                            <li key={a} className="text-sm text-white/70 border border-white/10 rounded-full px-4 py-1">{a}</li>
+                            <li key={a} className="text-sm text-[#dcdcdc] border border-[#262626] rounded-full px-4 py-1">{a}</li>
                         ))}
                     </ul>
                 </div>
@@ -207,23 +207,23 @@ export default function ServicesPage() {
                 <h2 className="font-serif text-4xl mb-12 text-center">Common Questions</h2>
                 <div className="max-w-3xl mx-auto space-y-8">
                     {FAQS.map((f) => (
-                        <div key={f.q} className="border-b border-white/10 pb-8">
+                        <div key={f.q} className="border-b border-[#262626] pb-8">
                             <h3 className="font-serif text-xl mb-3">{f.q}</h3>
-                            <p className="text-white/60 font-light leading-relaxed">{f.a}</p>
+                            <p className="text-[#9a9189] font-light leading-relaxed">{f.a}</p>
                         </div>
                     ))}
                 </div>
             </section>
 
             {/* CTA Section */}
-            <section className="py-24 bg-[#0F0F0F] border-t border-white/5">
+            <section className="py-24 bg-[#111111] border-t border-[#262626]">
                 <div className="container mx-auto px-6 text-center">
                     <h2 className="font-serif text-4xl mb-6">Ready to capture your story?</h2>
-                    <p className="text-white/60 mb-8 max-w-xl mx-auto font-light">
+                    <p className="text-[#9a9189] mb-8 max-w-xl mx-auto font-light">
                         Let&apos;s create something beautiful together. Reach out to check availability and discuss your vision.
                     </p>
                     <Link href={CONTACT_INFO.bookingUrl} target="_blank" rel="noopener noreferrer">
-                        <Button size="lg" className="bg-white text-black hover:bg-white/90 px-8">
+                        <Button size="lg" className="bg-[#ededed] text-[#0a0a0a] hover:bg-[#b07a52] px-8">
                             Inquire Now
                         </Button>
                     </Link>

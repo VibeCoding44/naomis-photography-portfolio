@@ -116,13 +116,13 @@ export default async function SessionPostPage({
                     <p className="mb-4">
                         <Link
                             href="/sessions"
-                            className="text-xs uppercase tracking-widest text-white/40 hover:text-white/70 transition-colors"
+                            className="text-xs uppercase tracking-widest text-[#6f6862] hover:text-[#b07a52] transition-colors"
                         >
                             ← All Sessions
                         </Link>
                     </p>
                     {meta && (
-                        <p className="text-xs uppercase tracking-widest text-white/40 mb-4">{meta}</p>
+                        <p className="text-xs uppercase tracking-widest text-[#6f6862] mb-4">{meta}</p>
                     )}
                     <h1 className="font-serif text-4xl md:text-5xl leading-tight">{post.title}</h1>
                 </div>
@@ -139,7 +139,7 @@ export default async function SessionPostPage({
                 </div>
 
                 <div
-                    className="prose-session max-w-3xl mx-auto text-white/70 font-light text-lg leading-relaxed space-y-6"
+                    className="prose-session max-w-3xl mx-auto text-[#dcdcdc] font-light text-lg leading-relaxed space-y-6"
                     dangerouslySetInnerHTML={{ __html: bodyHtml }}
                 />
 
@@ -160,21 +160,21 @@ export default async function SessionPostPage({
                     </div>
                 )}
 
-                <div className="max-w-3xl mx-auto mt-20 text-center border-t border-white/10 pt-12">
+                <div className="max-w-3xl mx-auto mt-20 text-center border-t border-[#262626] pt-12">
                     <h2 className="font-serif text-2xl md:text-3xl mb-4">Planning your own session?</h2>
-                    <p className="text-white/60 font-light mb-8">
+                    <p className="text-[#9a9189] font-light mb-8">
                         We&apos;d love to hear your story. Reach out to check availability across Plant City,
                         Tampa, and Central Florida.
                     </p>
                     <Link
                         href="/contact"
-                        className="inline-block bg-white text-black px-8 py-3 rounded-md hover:bg-white/90 transition-colors"
+                        className="inline-block bg-[#ededed] text-[#0a0a0a] px-8 py-3 rounded-md hover:bg-[#b07a52] transition-colors"
                     >
                         Get in Touch
                     </Link>
-                    <p className="mt-6 text-sm text-white/40">
+                    <p className="mt-6 text-sm text-[#6f6862]">
                         Or email us at{" "}
-                        <a href={`mailto:${CONTACT_INFO.email}`} className="underline underline-offset-4 hover:text-white/70">
+                        <a href={`mailto:${CONTACT_INFO.email}`} className="underline underline-offset-4 text-[#b07a52] hover:text-[#ededed]">
                             {CONTACT_INFO.email}
                         </a>
                     </p>

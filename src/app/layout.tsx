@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Playfair_Display, Inter } from "next/font/google";
+import { Playfair_Display, Cormorant_Garamond, Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/ui/navbar";
 import { Footer } from "@/components/ui/footer";
@@ -8,6 +8,14 @@ import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
+  subsets: ["latin"],
+});
+
+// Editorial italic accent (eyebrows, pull quotes) — pairs with Playfair display.
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
   subsets: ["latin"],
 });
 
@@ -63,7 +71,7 @@ export default function RootLayout({
       {GTM_CONTAINER_ID && <GoogleTagManager gtmId={GTM_CONTAINER_ID} />}
       <body
         suppressHydrationWarning
-        className={`${playfair.variable} ${inter.variable} antialiased bg-[#0a0a0a] text-[#ededed]`}
+        className={`${playfair.variable} ${cormorant.variable} ${inter.variable} antialiased`}
       >
         <Navbar />
         {children}

@@ -7,7 +7,7 @@ import type { PortfolioItem } from "@/lib/portfolio"
 export function GalleryGrid({ items }: { items: PortfolioItem[] }) {
     if (items.length === 0) {
         return (
-            <p className="text-center text-white/40 font-light py-20">
+            <p className="text-center text-[#6f6862] font-light py-20">
                 No photos yet — check back soon.
             </p>
         )
