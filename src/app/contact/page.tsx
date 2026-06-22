@@ -1,6 +1,5 @@
-import { Button } from "@/components/ui/button";
 import { CONTACT_INFO, SOCIAL_LINKS } from "@/lib/constants";
-import Link from "next/link";
+import { BookingForm } from "@/components/booking-form";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -49,17 +48,7 @@ export default function ContactPage() {
 
                     {/* Booking Section */}
                     <div className="md:w-1/2 flex flex-col justify-center items-start md:items-center space-y-6">
-                        <div className="p-8 border border-white/10 rounded-lg bg-white/5 w-full text-center">
-                            <h2 className="font-serif text-3xl mb-4">Ready to Book?</h2>
-                            <p className="text-white/60 mb-8 font-light">
-                                Secure your session directly through my booking portal.
-                            </p>
-                            <Link href={CONTACT_INFO.bookingUrl} target="_blank" rel="noopener noreferrer">
-                                <Button size="lg" className="w-full md:w-auto bg-white text-black hover:bg-white/90">
-                                    Request A Booking
-                                </Button>
-                            </Link>
-                        </div>
+                        <BookingForm />
                     </div>
                 </div>
             </div>
