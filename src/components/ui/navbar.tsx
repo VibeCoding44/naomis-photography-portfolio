@@ -27,6 +27,7 @@ export function Navbar() {
     }, [])
 
     return (
+        <>
         <nav
             className={cn(
                 "fixed top-0 left-0 right-0 z-50 transition-colors duration-300",
@@ -83,49 +84,52 @@ export function Navbar() {
                 >
                     {isOpen ? <X size={24} /> : <Menu size={24} />}
                 </button>
-
-                {/* Mobile Menu Overlay */}
-                <AnimatePresence>
-                    {isOpen && (
-                        <motion.div
-                            initial={{ opacity: 0, y: "-100%" }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: "-100%" }}
-                            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                            className="fixed inset-0 bg-[#0a0a0a] flex flex-col items-center justify-center gap-8 md:hidden"
-                        >
-                            {NAV_LINKS.map((link, i) => (
-                                <motion.div
-                                    key={link.name}
-                                    initial={{ opacity: 0, y: 20 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: 0.1 + i * 0.1 }}
-                                >
-                                    <Link
-                                        href={link.href}
-                                        className="font-serif text-4xl text-[#ededed]"
-                                        onClick={() => setIsOpen(false)}
-                                    >
-                                        {link.name}
-                                    </Link>
-                                </motion.div>
-                            ))}
-                            <motion.a
-                                initial={{ opacity: 0, y: 20 }}
-                                animate={{ opacity: 1, y: 0 }}
-                                transition={{ delay: 0.1 + NAV_LINKS.length * 0.1 }}
-                                href={CONTACT_INFO.bookingUrl}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="mt-2 rounded-full bg-[#ededed] px-7 py-3 text-sm uppercase tracking-[0.16em] text-[#0a0a0a]"
-                                onClick={() => setIsOpen(false)}
-                            >
-                                Book a session
-                            </motion.a>
-                        </motion.div>
-                    )}
-                </AnimatePresence>
             </div>
         </nav>
+
+        {/* Mobile Menu Overlay — rendered outside <nav> so the navbar's
+            backdrop-filter (when scrolled) can't become its containing block
+            and clip `fixed inset-0` to the navbar height. */}
+        <AnimatePresence>
+            {isOpen && (
+                <motion.div
+                    initial={{ opacity: 0, y: "-100%" }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: "-100%" }}
+                    transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                    className="fixed inset-0 z-40 bg-[#0a0a0a] flex flex-col items-center justify-center gap-8 md:hidden"
+                >
+                    {NAV_LINKS.map((link, i) => (
+                        <motion.div
+                            key={link.name}
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.1 + i * 0.1 }}
+                        >
+                            <Link
+                                href={link.href}
+                                className="font-serif text-4xl text-[#ededed]"
+                                onClick={() => setIsOpen(false)}
+                            >
+                                {link.name}
+                            </Link>
+                        </motion.div>
+                    ))}
+                    <motion.a
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 + NAV_LINKS.length * 0.1 }}
+                        href={CONTACT_INFO.bookingUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="mt-2 rounded-full bg-[#ededed] px-7 py-3 text-sm uppercase tracking-[0.16em] text-[#0a0a0a]"
+                        onClick={() => setIsOpen(false)}
+                    >
+                        Book a session
+                    </motion.a>
+                </motion.div>
+            )}
+        </AnimatePresence>
+        </>
     )
 }
