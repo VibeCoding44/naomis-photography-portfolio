@@ -13,7 +13,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { ChevronDown } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/constants";
 
 // Studio OS endpoint. Override at build time with NEXT_PUBLIC_STUDIO_OS_URL.
@@ -80,14 +80,20 @@ export function BookingForm() {
     }
   }
 
-  const field =
-    "w-full rounded-md border border-[#262626] bg-[#111111] px-4 py-3 text-[#ededed] placeholder-[#6f6862] transition-colors focus:border-[#b07a52] focus:outline-none";
+  // Shared control styling — inputs, selects, and textarea all share this so the
+  // form reads as one cohesive, polished set of fields.
+  const ctrl =
+    "w-full rounded-lg border border-[#2a2a2a] bg-[#0d0d0d] px-4 py-3 text-[0.95rem] text-[#ededed] placeholder-[#6f6862] transition-colors duration-200 focus:border-[#b07a52] focus:outline-none focus:ring-1 focus:ring-[#b07a52]/40";
+  const lbl = "mb-1.5 block text-[0.7rem] uppercase tracking-[0.14em] text-[#9a9189]";
 
   if (status === "sent") {
     return (
-      <div className="p-8 border border-[#262626] rounded-lg bg-[#111111] w-full text-center">
-        <h2 className="font-serif text-3xl mb-4">Thank you!</h2>
-        <p className="text-[#9a9189] mb-6 font-light">
+      <div className="w-full rounded-2xl border border-[#262626] bg-[#111111] p-9 text-center">
+        <div className="mx-auto mb-4 grid size-12 place-items-center rounded-full border border-[#b07a52]/40 text-[#b07a52]">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M20 6 9 17l-5-5" /></svg>
+        </div>
+        <h2 className="font-serif text-3xl mb-3">Thank you!</h2>
+        <p className="text-[#9a9189] mb-7 font-light leading-relaxed">
           Your inquiry is in — check your inbox for a note from us. Every session is tailored to you,
           so we&rsquo;ll follow up by call or email with pricing built around what you have in mind.
         </p>
@@ -95,7 +101,7 @@ export function BookingForm() {
           href={CONTACT_INFO.bookingUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-block rounded-md bg-[#ededed] px-6 py-3 text-[#0a0a0a] transition-colors hover:bg-[#b07a52]"
+          className="inline-block rounded-full bg-[#ededed] px-7 py-3 text-sm font-medium uppercase tracking-[0.1em] text-[#0a0a0a] transition-colors hover:bg-[#b07a52] hover:text-[#0a0a0a]"
         >
           Check availability now
         </Link>
@@ -104,58 +110,94 @@ export function BookingForm() {
   }
 
   return (
-    <form onSubmit={submit} className="p-8 border border-[#262626] rounded-lg bg-[#111111] w-full">
-      <h2 className="font-serif text-3xl mb-2 text-center">Ready to Book?</h2>
-      <p className="text-[#9a9189] mb-6 font-light text-center">
-        Send a quick note and we&rsquo;ll get right back to you.
+    <form onSubmit={submit} className="w-full rounded-2xl border border-[#262626] bg-[#111111] p-8 sm:p-9">
+      <h2 className="font-serif text-3xl text-center">Ready to Book?</h2>
+      <p className="mt-2 mb-7 text-center font-light text-[#9a9189]">
+        Tell us a little about your day and we&rsquo;ll be in touch.
       </p>
-      <div className="space-y-3">
-        <input
-          className={field} value={name} onChange={(e) => setName(e.target.value)}
-          placeholder="Your name" aria-label="Your name" required
-        />
-        <input
-          className={field} type="email" value={email} onChange={(e) => setEmail(e.target.value)}
-          placeholder="Email" aria-label="Email" required
-        />
-        <input
-          className={field} type="tel" value={phone} onChange={(e) => setPhone(e.target.value)}
-          placeholder="Phone (optional)" aria-label="Phone"
-        />
-        <select
-          className={`${field} ${service ? "text-[#ededed]" : "text-[#6f6862]"}`}
-          value={service} onChange={(e) => setService(e.target.value)}
-          aria-label="What service are you looking for?"
-        >
-          <option value="" className="bg-[#111111] text-[#9a9189]">What service are you looking for?</option>
-          {SERVICE_OPTIONS.map((o) => (
-            <option key={o} value={o} className="bg-[#111111] text-[#ededed]">{o}</option>
-          ))}
-        </select>
-        <select
-          className={`${field} ${source ? "text-[#ededed]" : "text-[#6f6862]"}`}
-          value={source} onChange={(e) => setSource(e.target.value)}
-          aria-label="How did you hear about us?"
-        >
-          <option value="" className="bg-[#111111] text-[#9a9189]">How did you hear about us?</option>
-          {HEARD_OPTIONS.map((o) => (
-            <option key={o} value={o} className="bg-[#111111] text-[#ededed]">{o}</option>
-          ))}
-        </select>
-        <textarea
-          className={field} value={detail} onChange={(e) => setDetail(e.target.value)}
-          placeholder="Date, venue, or what you have in mind (optional)" aria-label="Details" rows={3}
-        />
+
+      <div className="space-y-5">
+        <div>
+          <label htmlFor="bf-name" className={lbl}>Name</label>
+          <input
+            id="bf-name" className={ctrl} value={name} onChange={(e) => setName(e.target.value)}
+            placeholder="Your name" required
+          />
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label htmlFor="bf-email" className={lbl}>Email</label>
+            <input
+              id="bf-email" type="email" className={ctrl} value={email} onChange={(e) => setEmail(e.target.value)}
+              placeholder="you@email.com" required
+            />
+          </div>
+          <div>
+            <label htmlFor="bf-phone" className={lbl}>Phone <span className="text-[#6f6862] normal-case tracking-normal">(optional)</span></label>
+            <input
+              id="bf-phone" type="tel" className={ctrl} value={phone} onChange={(e) => setPhone(e.target.value)}
+              placeholder="(813) 000-0000"
+            />
+          </div>
+        </div>
+
+        <div className="grid gap-5 sm:grid-cols-2">
+          <div>
+            <label htmlFor="bf-service" className={lbl}>Service</label>
+            <div className="relative">
+              <select
+                id="bf-service"
+                className={`${ctrl} appearance-none pr-10 ${service ? "text-[#ededed]" : "text-[#6f6862]"}`}
+                value={service} onChange={(e) => setService(e.target.value)}
+              >
+                <option value="" disabled className="text-[#6f6862]">Select…</option>
+                {SERVICE_OPTIONS.map((o) => (
+                  <option key={o} value={o} className="bg-[#0d0d0d] text-[#ededed]">{o}</option>
+                ))}
+              </select>
+              <ChevronDown className="pointer-events-none absolute right-3.5 top-1/2 size-4 -translate-y-1/2 text-[#9a9189]" strokeWidth={1.8} />
+            </div>
+          </div>
+          <div>
+            <label htmlFor="bf-source" className={lbl}>How did you hear about us?</label>
+            <div className="relative">
+              <select
+                id="bf-source"
+                className={`${ctrl} appearance-none pr-10 ${source ? "text-[#ededed]" : "text-[#6f6862]"}`}
+                value={source} onChange={(e) => setSource(e.target.value)}
+              >
+                <option value="" disabled className="text-[#6f6862]">Select…</option>
+                {HEARD_OPTIONS.map((o) => (
+                  <option key={o} value={o} className="bg-[#0d0d0d] text-[#ededed]">{o}</option>
+                ))}
+              </select>
+              <ChevronDown className="pointer-events-none absolute right-3.5 top-1/2 size-4 -translate-y-1/2 text-[#9a9189]" strokeWidth={1.8} />
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <label htmlFor="bf-detail" className={lbl}>Your day <span className="text-[#6f6862] normal-case tracking-normal">(optional)</span></label>
+          <textarea
+            id="bf-detail" className={ctrl} value={detail} onChange={(e) => setDetail(e.target.value)}
+            placeholder="Date, venue, or what you have in mind…" rows={3}
+          />
+        </div>
       </div>
-      {status === "error" && <p className="mt-3 text-sm text-red-600">{errorMsg}</p>}
-      <Button
+
+      {status === "error" && <p className="mt-4 text-sm text-red-400">{errorMsg}</p>}
+
+      <button
         type="submit"
-        size="lg"
         disabled={!ready || status === "sending"}
-        className="mt-5 w-full bg-[#ededed] text-[#0a0a0a] hover:bg-[#b07a52] disabled:opacity-50"
+        className="mt-7 w-full rounded-full bg-[#ededed] px-6 py-3.5 text-sm font-medium uppercase tracking-[0.12em] text-[#0a0a0a] transition-colors duration-200 hover:bg-[#b07a52] disabled:cursor-not-allowed disabled:opacity-40"
       >
-        {status === "sending" ? "Sending…" : "Request A Booking"}
-      </Button>
+        {status === "sending" ? "Sending…" : "Request a booking"}
+      </button>
+      <p className="mt-3 text-center text-[0.72rem] text-[#6f6862]">
+        We reply to every inquiry personally — usually within a day.
+      </p>
     </form>
   );
 }

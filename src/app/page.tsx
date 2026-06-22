@@ -16,36 +16,42 @@ export const metadata: Metadata = {
 };
 
 // Portfolio bento tiles — real .webp assets under /public/images.
-const BENTO: { src: string; caption: string; className: string }[] = [
+const BENTO: { src: string; caption: string; className: string; pos?: string }[] = [
   {
     src: "/images/uploads/micro-wedding-plant-city-01.webp",
     caption: "Micro wedding · Plant City",
     className: "col-span-12 sm:col-span-7 row-span-2",
+    pos: "object-[center_35%]",
   },
   {
     src: "/images/portraits/bonnet-springs-engagement-lakeland-02.webp",
     caption: "Engagement · Bonnet Springs, Lakeland",
     className: "col-span-12 sm:col-span-5",
+    pos: "object-[center_25%]",
   },
   {
     src: "/images/uploads/eureka-springs-engagement-tampa-01.webp",
     caption: "Engagement · Eureka Springs, Tampa",
     className: "col-span-6 sm:col-span-5",
+    pos: "object-[center_30%]",
   },
   {
     src: "/images/portraits/gala-downtown-tampa-01.webp",
     caption: "Gala · Downtown Tampa",
     className: "col-span-6 sm:col-span-4",
+    pos: "object-[center_30%]",
   },
   {
     src: "/images/portraits/formal-portrait-bonnet-springs-lakeland-02.webp",
     caption: "Formal portrait · Lakeland",
     className: "col-span-6 sm:col-span-4 row-span-2",
+    pos: "object-[center_25%]",
   },
   {
     src: "/images/portraits/birthday-portrait-bonnet-springs-lakeland-01.webp",
     caption: "Birthday portrait · Lakeland",
     className: "col-span-6 sm:col-span-4",
+    pos: "object-[center_30%]",
   },
 ];
 
@@ -273,7 +279,7 @@ export default function Home() {
                   src={tile.src}
                   alt={tile.caption}
                   loading="lazy"
-                  className="h-full w-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+                  className={`h-full w-full object-cover ${tile.pos ?? "object-center"} transition-transform duration-700 ease-out group-hover:scale-[1.04]`}
                 />
                 <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-black/75 to-transparent p-4 text-sm text-[#ededed] opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
                   <span className="serif-i text-[1.05rem]">{tile.caption}</span>
