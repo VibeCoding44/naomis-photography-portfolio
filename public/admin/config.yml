@@ -112,6 +112,7 @@ collections:
           - { label: Events, value: events }
       - { name: excerpt, label: "Short summary", widget: text, hint: "1–2 warm sentences. This shows on the Sessions page, in Google results, and on Pinterest — make it inviting, not technical." }
       - { name: coverImage, label: "Cover photo", widget: image, hint: "Your strongest image — it's the first thing people see and what shows when the post is shared." }
+      - { name: galleryUrl, label: "Full gallery link (Pic-Time)", widget: string, required: false, pattern: ['^https?://.+', "Paste the full Pic-Time gallery link, starting with https://"], hint: "Paste the Pic-Time gallery URL to add a 'View the full gallery' button. Use the clean link that ends in /gallery — drop anything after a '?'." }
       - name: gallery
         label: "Photo gallery (optional)"
         widget: list

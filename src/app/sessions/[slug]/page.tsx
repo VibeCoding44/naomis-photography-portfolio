@@ -160,6 +160,19 @@ export default async function SessionPostPage({
                     </div>
                 )}
 
+                {post.galleryUrl && (
+                    <div className="max-w-3xl mx-auto mt-16 text-center">
+                        <a
+                            href={post.galleryUrl}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-block border border-[#b07a52] text-[#b07a52] px-8 py-3 rounded-md hover:bg-[#b07a52] hover:text-[#0a0a0a] transition-colors"
+                        >
+                            View the full gallery →
+                        </a>
+                    </div>
+                )}
+
                 <div className="max-w-3xl mx-auto mt-20 text-center border-t border-[#262626] pt-12">
                     <h2 className="font-serif text-2xl md:text-3xl mb-4">Planning your own session?</h2>
                     <p className="text-[#9a9189] font-light mb-8">

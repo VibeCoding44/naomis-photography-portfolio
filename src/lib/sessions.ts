@@ -15,6 +15,7 @@ export type SessionPost = {
     category?: string; // weddings | engagements | portraits | family | commercial | events
     excerpt: string; // card text + meta/OG description
     coverImage: string;
+    galleryUrl?: string; // optional Pic-Time (or other) full-gallery link → renders a "View the full gallery" button
     gallery?: SessionGalleryImage[];
     body: string; // markdown
 };
