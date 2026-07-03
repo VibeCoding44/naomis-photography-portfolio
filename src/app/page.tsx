@@ -26,14 +26,14 @@ const BENTO: { src: string; caption: string; className: string; pos?: string }[]
   {
     src: "/images/portraits/bonnet-springs-engagement-lakeland-02.webp",
     caption: "Engagement · Bonnet Springs, Lakeland",
-    className: "col-span-12 sm:col-span-5",
-    pos: "object-[center_25%]",
+    className: "col-span-12 sm:col-span-5 sm:row-span-2",
+    pos: "object-[center_20%]",
   },
   {
     src: "/images/uploads/eureka-springs-engagement-tampa-01.webp",
     caption: "Engagement · Eureka Springs, Tampa",
-    className: "col-span-6 sm:col-span-5",
-    pos: "object-[center_30%]",
+    className: "col-span-6 sm:col-span-5 sm:row-span-2",
+    pos: "object-[center_15%]",
   },
   {
     src: "/images/portraits/gala-downtown-tampa-01.webp",
