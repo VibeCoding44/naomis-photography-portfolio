@@ -10,8 +10,8 @@ export const metadata: Metadata = {
     },
 };
 
-export default function PortfolioPage() {
-    const items = getPortfolioItems();
+export default async function PortfolioPage() {
+    const items = await getPortfolioItems();
 
     return (
         <main className="pt-32 pb-20 min-h-screen bg-[#0a0a0a]">
