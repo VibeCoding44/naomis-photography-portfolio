@@ -67,7 +67,7 @@ collections:
     summary: "{{title}} — {{category}}"
     sortable_fields: [order, date]
     fields:
-      - { name: image, label: Photo, widget: image }
+      - { name: image, label: Photo, widget: image, hint: "One photo per entry — to add several photos, save a separate entry for each. Big phone photos are fine; they're compressed automatically after publish." }
       - { name: title, label: "Caption / title for this photo", widget: string }
       - name: category
         label: Category
@@ -85,7 +85,7 @@ collections:
   - name: sessions
     label: Sessions & Stories
     label_singular: Story
-    description: "Write a short story about a real wedding, engagement, or portrait session. Add the venue/location in the title for SEO (e.g. 'Engagement Session at Edward Medard Park')."
+    description: "Write a short story about a real wedding, engagement, or portrait session — or a quick Story post built around one favorite photo. Add the venue/location in the title for SEO (e.g. 'Engagement Session at Edward Medard Park')."
     folder: content/sessions
     create: true
     delete: true
@@ -96,6 +96,15 @@ collections:
     sortable_fields: [date, title]
     fields:
       - { name: title, label: "Title", widget: string, hint: "Put the venue or city in the title — it's how couples find you on Google. e.g. 'Engagement Session at Edward Medard Park, Plant City'." }
+      - name: type
+        label: "Post type"
+        widget: select
+        default: session
+        required: false
+        hint: "Session recap = a full shoot with a gallery. Story = a quick post about one favorite photo or moment — the gallery below is optional for those."
+        options:
+          - { label: "Session recap (full shoot)", value: session }
+          - { label: "Story (one photo or moment)", value: story }
       - { name: date, label: "Date of the session", widget: datetime, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false }
       - { name: location, label: "Location / city", widget: string, required: false, hint: "e.g. Plant City, FL  ·  Tampa, FL  ·  Lakeland, FL" }
       - { name: venue, label: "Venue name (optional)", widget: string, required: false, hint: "The park, barn, church, or venue — leave blank if it was a roaming session." }
@@ -141,3 +150,32 @@ collections:
           ## Planning Your Own Session
 
           Dreaming up your own session in Plant City or Tampa Bay? Browse our [portfolio](/portfolio), explore our [services & packages](/services), and [get in touch](/contact) to check your date.
+
+  # --- OFFERS / PROMOS: one evergreen page, edited in place -----------------
+  # Time-limited promos live on /offers (and on GBP/Instagram/email — those
+  # channels are instant; this page is the on-site home for them). Editing this
+  # single page beats dated promo posts: it stays indexed while the offers
+  # inside it change.
+  - name: offers
+    label: Offers & Promos
+    files:
+      - file: content/offers/offers.json
+        name: offers
+        label: "Current Offers page"
+        description: "The /offers page. Add a promo when you're running one; delete it when it ends. The page reads fine with no offers listed."
+        fields:
+          - { name: heading, label: "Page heading", widget: string, default: "Current Offers & Mini Sessions" }
+          - { name: intro, label: "Intro paragraph", widget: text, hint: "1–3 sentences welcoming people to the page. Shown under the heading." }
+          - name: items
+            label: "Active offers"
+            widget: list
+            required: false
+            summary: "{{fields.title}}"
+            label_singular: "Offer"
+            hint: "One entry per promo — e.g. 'Fall Mini Sessions', 'Graduation Special'. Remove it here when the promo ends."
+            fields:
+              - { name: title, label: "Offer name", widget: string, hint: "e.g. 'Fall Mini Sessions at Bonnet Springs Park'." }
+              - { name: description, label: "Details", widget: text, hint: "What's included, how long, where — 2–4 sentences." }
+              - { name: image, label: "Photo (optional)", widget: image, required: false }
+              - { name: price, label: "Price line (optional)", widget: string, required: false, hint: "Free text — e.g. '$250 · 20 minutes · 15 edited images'." }
+              - { name: validUntil, label: "Book by / runs until (optional)", widget: datetime, required: false, format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, hint: "The offer hides from the page automatically after this date (on the next site update)." }

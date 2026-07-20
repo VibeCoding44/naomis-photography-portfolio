@@ -11,6 +11,7 @@ export const GTM_CONTAINER_ID = "GTM-MHXCT2RK";
 export const NAV_LINKS = [
     { name: "Portfolio", href: "/portfolio" },
     { name: "Sessions", href: "/sessions" },
+    { name: "Offers", href: "/offers" },
     { name: "About", href: "/about" },
     { name: "Services", href: "/services" },
     { name: "Contact", href: "/contact" },
