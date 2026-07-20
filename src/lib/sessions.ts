@@ -9,6 +9,7 @@ export type SessionGalleryImage = {
 export type SessionPost = {
     slug: string;
     title: string;
+    type?: "session" | "story"; // session = full shoot recap; story = a single image/moment (gallery optional)
     date: string; // ISO yyyy-mm-dd — used for sorting + article:published_time
     location?: string; // city / area (e.g. "Plant City, FL")
     venue?: string; // optional venue name (e.g. "Edward Medard Park")

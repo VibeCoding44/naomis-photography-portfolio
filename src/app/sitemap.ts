@@ -8,7 +8,7 @@ export const dynamic = "force-static";
 // Static export-friendly sitemap. Static routes are listed here; session/story
 // posts are appended automatically from content/sessions at build time.
 export default function sitemap(): MetadataRoute.Sitemap {
-  const routes = ["", "/portfolio", "/sessions", "/about", "/services", "/contact", "/privacy"];
+  const routes = ["", "/portfolio", "/sessions", "/offers", "/about", "/services", "/contact", "/privacy"];
 
   const staticEntries: MetadataRoute.Sitemap = routes.map((path) => ({
     url: `${SITE_URL}${path}`,
