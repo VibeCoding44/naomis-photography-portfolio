@@ -198,7 +198,7 @@ export default function Home() {
               Cute Company Photography is a family-owned photography team based in Plant City,
               Florida, serving couples and families across Tampa, Lakeland, Brandon, and all of
               Central Florida. Run by four sisters who grew up as their family&apos;s &ldquo;memory
-              keepers,&rdquo; we photograph the moments most worth holding onto — wedding days,
+              keepers,&rdquo; we photograph the moments most worth holding onto: wedding days,
               growing families, milestones, and the quiet in-between.
             </p>
             <p>
@@ -234,7 +234,7 @@ export default function Home() {
             <h2 className="mt-4 text-3xl md:text-4xl">Four sisters, raised to be memory keepers.</h2>
             <div className="prose-cormorant mt-6 space-y-5">
               <p>
-                We grew up as our family&apos;s memory keepers — the ones with the camera at every
+                We grew up as our family&apos;s memory keepers, the ones with the camera at every
                 birthday, holiday, and ordinary Tuesday worth remembering. That instinct became
                 Cute Company: a family-owned studio built around the moments most worth holding
                 onto.
@@ -388,7 +388,7 @@ export default function Home() {
                     &ldquo;{t.quote}&rdquo;
                   </blockquote>
                   <figcaption className="mt-5 text-sm text-[#9a9189]">
-                    — {t.name}
+                    {t.name}
                     {t.detail ? <span className="text-[#a99f93]"> · {t.detail}</span> : null}
                   </figcaption>
                 </figure>
@@ -407,7 +407,7 @@ export default function Home() {
           </h2>
           <p className="reveal prose-cormorant mt-6">
             We take a limited number of weddings and sessions each season so every story gets
-            our full attention. Reach out to check availability for your date — we&apos;d love
+            our full attention. Reach out to check availability for your date, and we&apos;d love
             to hear what you&apos;re planning.
           </p>
           <div className="reveal mt-9">

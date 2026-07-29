@@ -18,7 +18,7 @@ const SERVICES = [
         image: "/images/wedding-hero.webp",
         alt: "Fine art wedding photography in Plant City and Tampa, Florida",
         heading: "Wedding & Elopement",
-        copy: "From intimate elopements to full celebrations, your wedding day is documented with a fine-art, editorial eye — candid emotion, the quiet in-between moments, and the details you spent months planning. Serving couples across Plant City, Tampa Bay, and all of Central Florida, with coverage built around your timeline rather than a rigid shot list.",
+        copy: "From intimate elopements to full celebrations, your wedding day is documented with a fine-art, editorial eye: candid emotion, the quiet in-between moments, and the details you spent months planning. Serving couples across Plant City, Tampa Bay, and all of Central Florida, with coverage built around your timeline rather than a rigid shot list.",
         items: ["Full-day & half-day wedding coverage", "Elopements & micro-weddings", "Engagement & couples sessions", "Bridal & getting-ready coverage"],
     },
     {
@@ -34,16 +34,16 @@ const SERVICES = [
         image: "/images/services-midshot.webp",
         alt: "Editorial portrait and family photography in Plant City, Florida",
         heading: "Portrait & Family",
-        copy: "Creative, magazine-inspired portraiture for life's milestones and the everyday people you love. From family sessions and maternity to seniors, graduations, and personal editorial shoots, you'll get relaxed direction that makes even camera-shy clients feel at ease — and images that actually look like you.",
+        copy: "Creative, magazine-inspired portraiture for life's milestones and the everyday people you love. From family sessions and maternity to seniors, graduations, and personal editorial shoots, you'll get relaxed direction that makes even camera-shy clients feel at ease, and images that actually look like you.",
         items: ["Family & lifestyle sessions", "Maternity & newborn", "Senior, graduation & birthday", "Editorial & personal branding"],
     },
 ];
 
 const PROCESS = [
     { step: "01", title: "Inquire & Connect", body: "Reach out with your date, location, and what you have in mind. We'll hop on a quick call or exchange messages to make sure we're the right fit before anything is booked." },
-    { step: "02", title: "Plan & Prepare", body: "Once your date is reserved with a deposit, we build a simple plan together — timeline, locations around Tampa Bay, outfits, and any must-have shots — so the day itself feels effortless." },
+    { step: "02", title: "Plan & Prepare", body: "Once your date is reserved with a deposit, we build a simple plan together (timeline, locations around Tampa Bay, outfits, and any must-have shots) so the day itself feels effortless." },
     { step: "03", title: "Your Session", body: "On the day, you relax and be present. You'll get gentle direction where you want it and plenty of room for the real, candid moments that make the best photographs." },
-    { step: "04", title: "Gallery & Delivery", body: "Your hand-edited, high-resolution gallery is delivered through a private online portal with personal printing rights — ready to share, print, and keep for a lifetime." },
+    { step: "04", title: "Gallery & Delivery", body: "Your hand-edited, high-resolution gallery is delivered through a private online portal with personal printing rights, ready to share, print, and keep for a lifetime." },
 ];
 
 const AREAS = ["Plant City", "Tampa", "Lakeland", "Brandon", "Riverview", "Valrico", "Dover", "Central Florida"];
@@ -55,23 +55,23 @@ const FAQS = [
     },
     {
         q: "How far in advance should I book a wedding photographer?",
-        a: "For weddings, 9–12 months out is ideal, especially for peak Florida season (October–April). Portrait and branding sessions can often be scheduled within a few weeks — but popular weekends fill quickly, so reach out as early as you can.",
+        a: "For weddings, 9 to 12 months out is ideal, especially for peak Florida season (October to April). Portrait and branding sessions can often be scheduled within a few weeks, but popular weekends fill quickly, so reach out as early as you can.",
     },
     {
         q: "Do you travel outside Plant City and Tampa?",
-        a: "Yes. Sessions and weddings throughout Central Florida are welcome, and travel beyond the Tampa Bay area is available — just include your location when you inquire and we'll include any travel details in your custom quote.",
+        a: "Yes. Sessions and weddings throughout Central Florida are welcome, and travel beyond the Tampa Bay area is available. Just include your location when you inquire and we'll include any travel details in your custom quote.",
     },
     {
         q: "Do you require a deposit to reserve my date?",
-        a: "Yes. Your date is reserved once a deposit is placed, after which we build a simple plan together — timeline, locations around Tampa Bay, outfits, and any must-have shots — so the day itself feels effortless.",
+        a: "Yes. Your date is reserved once a deposit is placed, after which we build a simple plan together (timeline, locations around Tampa Bay, outfits, and any must-have shots) so the day itself feels effortless.",
     },
     {
         q: "What's included with my photos?",
-        a: "You'll receive a hand-edited, high-resolution gallery delivered through a private online portal with personal printing rights — ready to share, print, and keep for a lifetime.",
+        a: "You'll receive a hand-edited, high-resolution gallery delivered through a private online portal with personal printing rights, ready to share, print, and keep for a lifetime.",
     },
     {
         q: "When will we receive our photos?",
-        a: "Portrait and branding galleries are typically delivered within 1–2 weeks, and weddings within 4–6 weeks. You'll also receive a small set of preview images shortly after your session or wedding day.",
+        a: "Portrait and branding galleries are typically delivered within 1 to 2 weeks, and weddings within 4 to 6 weeks. You'll also receive a small set of preview images shortly after your session or wedding day.",
     },
 ];
 
@@ -99,7 +99,7 @@ export default function ServicesPage() {
                 <h1 className="font-serif text-5xl md:text-7xl mb-6">Curated Photography Services</h1>
                 <p className="text-[#9a9189] text-lg max-w-2xl mx-auto font-light">
                     Fine-art wedding, portrait, family, and commercial photography for Plant City, Tampa Bay,
-                    and Central Florida. Every session is tailored to your story — explore the collections below,
+                    and Central Florida. Every session is tailored to your story, so explore the collections below,
                     then reach out to check availability for your date.
                 </p>
             </section>
@@ -183,7 +183,7 @@ export default function ServicesPage() {
                         <p className="text-[#9a9189] font-light text-sm">Elopement, micro-wedding, and full-day collections.</p>
                     </div>
                 </div>
-                <p className="text-[#6f6862] text-xs text-center mt-6 font-light">Tailored pricing for every booking — contact us for your personalized quote.</p>
+                <p className="text-[#6f6862] text-xs text-center mt-6 font-light">Tailored pricing for every booking. Contact us for your personalized quote.</p>
             </section>
 
             {/* Areas Served */}

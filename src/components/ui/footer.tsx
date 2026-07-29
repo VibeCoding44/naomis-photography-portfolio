@@ -13,7 +13,7 @@ export function Footer() {
                             Cute Company<span className="text-[#b07a52]">.</span>
                         </p>
                         <p className="prose-cormorant mt-3 max-w-[34ch]">
-                            Family-owned, fine-art photography by four sisters —
+                            Family-owned, fine-art photography by four sisters.
                             Plant City, Tampa &amp; Central Florida.
                         </p>
                         <a

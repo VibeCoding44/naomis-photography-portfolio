@@ -37,13 +37,13 @@ export default function SessionsPage() {
                     <h1 className="font-serif text-5xl md:text-6xl mb-6">Sessions &amp; Stories</h1>
                     <p className="max-w-2xl mx-auto text-[#9a9189] font-light">
                         Real weddings, engagements, and portrait sessions from across Plant City,
-                        Tampa, and Central Florida — a look behind the camera at the moments we love most.
+                        Tampa, and Central Florida. A look behind the camera at the moments we love most.
                     </p>
                 </div>
 
                 {posts.length === 0 ? (
                     <p className="text-center text-[#6f6862] font-light py-20">
-                        New stories coming soon — check back shortly.
+                        New stories coming soon. Check back shortly.
                     </p>
                 ) : (
                     <div className="grid gap-10 md:grid-cols-2 lg:grid-cols-3 max-w-6xl mx-auto">
@@ -57,7 +57,7 @@ export default function SessionsPage() {
                                     <div className="relative aspect-[4/5] overflow-hidden">
                                         <Image
                                             src={post.coverImage}
-                                            alt={`${post.title} — photography by Cute Company Photography`}
+                                            alt={`${post.title}, photography by Cute Company Photography`}
                                             fill
                                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

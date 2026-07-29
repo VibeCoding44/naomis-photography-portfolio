@@ -130,7 +130,7 @@ export default async function SessionPostPage({
                 <div className="max-w-4xl mx-auto relative aspect-[3/2] overflow-hidden rounded-lg mb-12">
                     <Image
                         src={post.coverImage}
-                        alt={`${post.title} — photography by Cute Company Photography in ${post.location || "Central Florida"}`}
+                        alt={`${post.title}, photography by Cute Company Photography in ${post.location || "Central Florida"}`}
                         fill
                         priority
                         className="object-cover object-[50%_25%]"
@@ -149,7 +149,7 @@ export default async function SessionPostPage({
                             <div key={img.image} className="break-inside-avoid overflow-hidden rounded-lg">
                                 <Image
                                     src={img.image}
-                                    alt={img.alt || `${post.title} — Cute Company Photography`}
+                                    alt={img.alt || `${post.title}, Cute Company Photography`}
                                     width={800}
                                     height={1000}
                                     className="w-full h-auto object-cover"

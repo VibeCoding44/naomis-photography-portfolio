@@ -42,7 +42,7 @@ export default function PrivacyPage() {
                             <p>
                                 <strong className="text-[#ededed] font-normal">Information you give us.</strong>{" "}
                                 When you email, call, or request a booking, we receive the details you
-                                choose to share — typically your name, email address, phone number, event
+                                choose to share, typically your name, email address, phone number, event
                                 date, and a description of the session you&rsquo;re planning.
                             </p>
                             <p>
@@ -60,12 +60,12 @@ export default function PrivacyPage() {
                             <ul className="space-y-3 list-disc pl-6 marker:text-[#b07a52]">
                                 <li>
                                     <strong className="text-[#ededed] font-normal">Google Analytics &amp; Google Tag Manager</strong>{" "}
-                                    — to measure site traffic and understand which pages are helpful to
+                                    to measure site traffic and understand which pages are helpful to
                                     visitors.
                                 </li>
                                 <li>
                                     <strong className="text-[#ededed] font-normal">Pinterest Tag</strong>{" "}
-                                    — to measure the performance of our Pinterest content and ads, and to
+                                    to measure the performance of our Pinterest content and ads, and to
                                     understand which visits lead to booking inquiries.
                                 </li>
                             </ul>
@@ -108,7 +108,7 @@ export default function PrivacyPage() {
                         <section className="space-y-4">
                             <h2 className="font-serif text-3xl text-[#ededed]">Third-Party Links</h2>
                             <p>
-                                Our site may link to third-party services — for example, our booking
+                                Our site may link to third-party services, for example, our booking
                                 request flow and our social profiles. Once you leave our site, this policy
                                 no longer applies, and we encourage you to review the privacy policy of any
                                 site you visit.

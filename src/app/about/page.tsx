@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "About the Photographers | Plant City & Tampa",
-    description: "Meet the four sisters behind Cute Company Photography — a family-owned, Plant City and Tampa-based team crafting fine art wedding, portrait, and commercial imagery across Central Florida.",
+    description: "Meet the four sisters behind Cute Company Photography, a family-owned, Plant City and Tampa-based team crafting fine art wedding, portrait, and commercial imagery across Central Florida.",
     alternates: {
         canonical: "/about",
     },
@@ -31,13 +31,13 @@ export default function AboutPage() {
                         <h1 className="font-serif text-5xl mb-8">About Us</h1>
                         <div className="space-y-6 text-[#dcdcdc] font-light leading-relaxed text-lg">
                             <p>
-                                Cute Company Photography is a family-owned photography team based in the Tampa Bay Area, dedicated to preserving what matters most—your family’s memories. Run by four sisters who grew up as the unofficial “memory keepers” of our own family, we’ve learned just how quickly time moves and how precious the in-between moments can be.
+                                Cute Company Photography is a family-owned photography team based in the Tampa Bay Area, dedicated to preserving what matters most: your family’s memories. Run by four sisters who grew up as the unofficial “memory keepers” of our own family, we’ve learned just how quickly time moves and how precious the in-between moments can be.
                             </p>
                             <p>
-                                We believe photographs should do more than document a day—they should hold onto the love, the laughter, and the season of life you’re in, so it never fades. Because while memories can soften with time, a thoughtfully captured image can keep a moment alive forever.
+                                We believe photographs should do more than document a day. They should hold onto the love, the laughter, and the season of life you’re in, so it never fades. Because while memories can soften with time, a thoughtfully captured image can keep a moment alive forever.
                             </p>
                             <p>
-                                From our home base in Plant City, we photograph weddings, elopements, engagements, growing families, maternity and newborn sessions, senior portraits, and branding imagery for local businesses—traveling to couples and families throughout Tampa, Lakeland, Brandon, and across Central Florida. Wherever your story takes place, we come to you.
+                                From our home base in Plant City, we photograph weddings, elopements, engagements, growing families, maternity and newborn sessions, senior portraits, and branding imagery for local businesses, traveling to couples and families throughout Tampa, Lakeland, Brandon, and across Central Florida. Wherever your story takes place, we come to you.
                             </p>
                             <p>
                                 Our style is rooted in natural light, candid and unscripted moments, and true-to-life editing with warm, cinematic tones. The goal is simple: relaxed sessions that feel like time with people who care, and images that actually look and feel like you.

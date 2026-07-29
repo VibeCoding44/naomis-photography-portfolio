@@ -94,7 +94,7 @@ export function BookingForm() {
         </div>
         <h2 className="font-serif text-3xl mb-3">Thank you!</h2>
         <p className="text-[#9a9189] mb-7 font-light leading-relaxed">
-          Your inquiry is in — check your inbox for a note from us. Every session is tailored to you,
+          Your inquiry is in. Check your inbox for a note from us. Every session is tailored to you,
           so we&rsquo;ll follow up by call or email with pricing built around what you have in mind.
         </p>
         <Link
@@ -196,7 +196,7 @@ export function BookingForm() {
         {status === "sending" ? "Sending…" : "Request a booking"}
       </button>
       <p className="mt-3 text-center text-[0.72rem] text-[#6f6862]">
-        We reply to every inquiry personally — usually within a day.
+        We reply to every inquiry personally, usually within a day.
       </p>
     </form>
   );

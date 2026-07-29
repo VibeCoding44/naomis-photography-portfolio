@@ -43,7 +43,7 @@ export const metadata: Metadata = {
         url: "/images/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Cute Company Photography — fine art wedding photography in Plant City & Tampa, FL",
+        alt: "Cute Company Photography, fine art wedding photography in Plant City & Tampa, FL",
       },
     ],
   },

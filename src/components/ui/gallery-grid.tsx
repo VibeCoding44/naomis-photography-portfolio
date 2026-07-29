@@ -8,7 +8,7 @@ export function GalleryGrid({ items }: { items: PortfolioItem[] }) {
     if (items.length === 0) {
         return (
             <p className="text-center text-[#6f6862] font-light py-20">
-                No photos yet — check back soon.
+                No photos yet. Check back soon.
             </p>
         )
     }
@@ -29,7 +29,7 @@ export function GalleryGrid({ items }: { items: PortfolioItem[] }) {
                     <Image
                         src={item.image}
                         alt={label
-                            ? `${label} — fine art photography by Cute Company Photography in Plant City & Tampa, FL`
+                            ? `${label}, fine art photography by Cute Company Photography in Plant City & Tampa, FL`
                             : `Fine art wedding, portrait & family photography by Cute Company Photography in Plant City & Tampa Bay, FL`}
                         width={800}
                         height={600}

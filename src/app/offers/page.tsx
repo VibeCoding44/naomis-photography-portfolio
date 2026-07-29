@@ -10,7 +10,7 @@ export const dynamic = "force-static";
 export const metadata: Metadata = {
     title: "Current Offers & Mini Sessions | Plant City & Tampa Photography",
     description:
-        "Seasonal mini sessions, graduation specials, and limited-time photography offers from Cute Company Photography — serving Plant City, Tampa Bay, and Central Florida.",
+        "Seasonal mini sessions, graduation specials, and limited-time photography offers from Cute Company Photography, serving Plant City, Tampa Bay, and Central Florida.",
     alternates: {
         canonical: "/offers",
     },
@@ -79,7 +79,7 @@ export default function OffersPage() {
                             >
                                 Instagram
                             </a>{" "}
-                            first — usually for fall family photos, spring graduations, and holiday portraits.
+                            first, usually for fall family photos, spring graduations, and holiday portraits.
                             Full sessions are always open for booking.
                         </p>
                         <Link href="/contact">
@@ -99,7 +99,7 @@ export default function OffersPage() {
                                     <div className="relative aspect-[3/2] overflow-hidden">
                                         <Image
                                             src={offer.image}
-                                            alt={`${offer.title} — Cute Company Photography`}
+                                            alt={`${offer.title}, Cute Company Photography`}
                                             fill
                                             className="object-cover"
                                             sizes="(max-width: 768px) 100vw, 50vw"
@@ -135,14 +135,14 @@ export default function OffersPage() {
                     <h2 className="font-serif text-3xl mb-6 text-center">How our mini sessions work</h2>
                     <div className="space-y-5 text-[#9a9189] font-light leading-relaxed">
                         <p>
-                            A mini session is a shorter, set-price version of a full session — usually 15 to 30
+                            A mini session is a shorter, set-price version of a full session, usually 15 to 30
                             minutes at one location around Plant City, Tampa, or Lakeland, with a small gallery
                             of hand-edited images delivered through your private online portal. They&apos;re perfect
                             for updated family photos, graduation and senior portraits, announcements, and
                             holiday cards.
                         </p>
                         <p>
-                            Because dates and spots are limited, minis are first-come, first-served — when a
+                            Because dates and spots are limited, minis are first-come, first-served. When a
                             round opens, it&apos;s posted here with the date, location, and price, and spots are
                             reserved through the{" "}
                             <Link href="/contact" className="text-[#b07a52] hover:underline">
@@ -169,7 +169,7 @@ export default function OffersPage() {
                                 Instagram
                             </a>{" "}
                             or send a note through the contact page and mention you&apos;d like a heads-up about
-                            minis — we keep a short list.
+                            minis. We keep a short list.
                         </p>
                     </div>
                 </section>
@@ -179,7 +179,7 @@ export default function OffersPage() {
                     <h2 className="font-serif text-3xl mb-4">Have a date in mind?</h2>
                     <p className="text-[#9a9189] mb-8 max-w-xl mx-auto font-light">
                         Whether it&apos;s a mini or a full session, reach out with your date and what you&apos;re
-                        dreaming up — we&apos;ll take it from there.
+                        dreaming up, and we&apos;ll take it from there.
                     </p>
                     <Link href={CONTACT_INFO.bookingUrl} target="_blank" rel="noopener noreferrer">
                         <Button size="lg" className="bg-[#ededed] text-[#0a0a0a] hover:bg-[#b07a52] px-8">
