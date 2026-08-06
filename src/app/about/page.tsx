@@ -4,7 +4,7 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
     title: "About the Photographers | Plant City & Tampa",
-    description: "Meet the four sisters behind Cute Company Photography, a family-owned, Plant City and Tampa-based team crafting fine art wedding, portrait, and commercial imagery across Central Florida.",
+    description: "Cute Company Photography is a family-owned Plant City wedding and portrait photographer serving the Tampa Bay area. Meet the four sisters capturing weddings, families, and candid moments across Central Florida.",
     alternates: {
         canonical: "/about",
     },
@@ -31,7 +31,7 @@ export default function AboutPage() {
                         <h1 className="font-serif text-5xl mb-8">About Us</h1>
                         <div className="space-y-6 text-[#dcdcdc] font-light leading-relaxed text-lg">
                             <p>
-                                Cute Company Photography is a family-owned photography team based in the Tampa Bay Area, dedicated to preserving what matters most: your family’s memories. Run by four sisters who grew up as the unofficial “memory keepers” of our own family, we’ve learned just how quickly time moves and how precious the in-between moments can be.
+                                Cute Company Photography is a family-owned wedding and portrait photography studio in Plant City, FL, serving the greater Tampa Bay area and dedicated to preserving what matters most: your family’s memories. Run by four sisters who grew up as the unofficial “memory keepers” of our own family, we’ve learned just how quickly time moves and how precious the in-between moments can be.
                             </p>
                             <p>
                                 We believe photographs should do more than document a day. They should hold onto the love, the laughter, and the season of life you’re in, so it never fades. Because while memories can soften with time, a thoughtfully captured image can keep a moment alive forever.
