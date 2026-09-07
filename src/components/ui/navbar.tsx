@@ -186,8 +186,21 @@ export function Navbar() {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0, y: "-100%" }}
                     transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-                    className="fixed inset-0 z-40 bg-[#0a0a0a] flex flex-col items-center justify-center gap-8 md:hidden"
+                    // gap-9 is the rhythm between top-level entries. The Work
+                    // group manages its own tighter internal spacing, so the
+                    // eyebrow + its three children read as one block rather than
+                    // as three loose links competing with Offers/About/Contact.
+                    // `justify-center` would clip the top of the list on short
+                    // viewports (the overflow scrolls, but centred content
+                    // overflows in BOTH directions and the top is unreachable),
+                    // so centring is applied via `my-auto` on the inner column
+                    // instead - it centres when there is room and collapses to
+                    // normal top-aligned scrolling when there isn't.
+                    className="fixed inset-0 z-40 flex flex-col overflow-y-auto overscroll-contain bg-[#0a0a0a] md:hidden"
                 >
+                  {/* pt-24 clears the fixed navbar so the first item can never
+                      collide with the logo on a short viewport. */}
+                  <div className="my-auto flex w-full flex-col items-center gap-9 px-6 pb-16 pt-24">
                     {NAV_LINKS.map((link, i) => (
                         <motion.div
                             key={link.name}
@@ -201,15 +214,15 @@ export function Navbar() {
                                 // listed directly, which is fewer taps than a disclosure
                                 // and keeps every page one tap from the menu.
                                 <>
-                                    <span className="block text-[0.7rem] uppercase tracking-[0.18em] text-[#6f6862]">
+                                    <span className="block text-[0.68rem] uppercase tracking-[0.22em] text-[#6f6862]">
                                         {link.name}
                                     </span>
-                                    <div className="mt-3 flex flex-col gap-3">
+                                    <div className="mt-5 flex flex-col gap-5">
                                         {link.children.map((child) => (
                                             <Link
                                                 key={child.href}
                                                 href={child.href}
-                                                className="font-serif text-3xl text-[#ededed]"
+                                                className="font-serif text-[2rem] leading-none text-[#ededed]"
                                                 onClick={() => setIsOpen(false)}
                                             >
                                                 {child.name}
@@ -220,7 +233,7 @@ export function Navbar() {
                             ) : (
                                 <Link
                                     href={link.href}
-                                    className="font-serif text-3xl text-[#ededed]"
+                                    className="font-serif text-[2rem] leading-none text-[#ededed]"
                                     onClick={() => setIsOpen(false)}
                                 >
                                     {link.name}
@@ -228,18 +241,29 @@ export function Navbar() {
                             )}
                         </motion.div>
                     ))}
+                    <motion.span
+                        aria-hidden="true"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        transition={{ delay: 0.1 + NAV_LINKS.length * 0.1 }}
+                        className="h-px w-16 bg-[#262626]"
+                    />
                     <motion.a
                         initial={{ opacity: 0, y: 20 }}
                         animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 + NAV_LINKS.length * 0.1 }}
+                        transition={{ delay: 0.15 + NAV_LINKS.length * 0.1 }}
                         href={CONTACT_INFO.bookingUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="mt-2 rounded-full bg-[#ededed] px-7 py-3 text-sm uppercase tracking-[0.16em] text-[#0a0a0a]"
+                        // Extra top margin plus a hairline rule: this is an action,
+                        // not another nav destination, and it was reading as a
+                        // seventh link jammed under Contact.
+                        className="mt-4 rounded-full bg-[#ededed] px-8 py-3.5 text-sm uppercase tracking-[0.16em] text-[#0a0a0a]"
                         onClick={() => setIsOpen(false)}
                     >
                         Book a session
                     </motion.a>
+                  </div>
                 </motion.div>
             )}
         </AnimatePresence>
