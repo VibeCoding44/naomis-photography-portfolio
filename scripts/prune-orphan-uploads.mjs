@@ -42,7 +42,15 @@ function main() {
         if (file === ".gitkeep") continue;
         const full = path.join(UPLOADS_DIR, file);
         if (!fs.statSync(full).isFile()) continue;
-        if (!referenced.has(file)) {
+        // Responsive variants (<name>-320w.webp, written by
+        // scripts/generate-srcset.mjs) are owned by their source image, not by a
+        // CMS entry, so they are kept whenever that source is still referenced.
+        // Without this they look like orphans under their own basename and get
+        // deleted, which silently breaks every srcset on the site.
+        const variant = file.match(/^(.*)-\d+w(\.[a-z0-9]+)$/i);
+        const owner = variant ? `${variant[1]}${variant[2]}` : file;
+
+        if (!referenced.has(owner)) {
             fs.rmSync(full);
             console.log(`Removed orphan: ${UPLOADS_DIR}/${file}`);
             removed++;
