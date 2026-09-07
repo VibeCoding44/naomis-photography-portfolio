@@ -67,12 +67,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={`${playfair.variable} ${cormorant.variable} ${inter.variable}`}
+    >
       {GTM_CONTAINER_ID && <GoogleTagManager gtmId={GTM_CONTAINER_ID} />}
-      <body
-        suppressHydrationWarning
-        className={`${playfair.variable} ${cormorant.variable} ${inter.variable} antialiased`}
-      >
+      <body suppressHydrationWarning className="antialiased">
         <Navbar />
         {children}
         <Footer />
