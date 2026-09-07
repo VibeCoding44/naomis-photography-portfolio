@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Reveal } from "@/components/ui/reveal";
 import { Marquee } from "@/components/ui/marquee";
 import { CONTACT_INFO, SITE_URL, SOCIAL_LINKS } from "@/lib/constants";
+import { BookingForm } from "@/components/booking-form";
 
 // Google Business Profile map link (derived from the business's place ID).
 const GBP_MAP = "https://www.google.com/maps/place/?q=place_id:ChIJszQJrAhNwgwRx11eqz5r-Ow";
@@ -399,8 +400,8 @@ export default function Home() {
       </section>
 
       {/* ──────────────── Closing inquiry teaser ──────────────── */}
-      <section className="py-24 md:py-32 border-t border-[#262626] bg-[#111111]">
-        <div className="wrap max-w-2xl text-center">
+      <section id="inquire" className="scroll-mt-24 py-24 md:py-32 border-t border-[#262626] bg-[#111111]">
+        <div className="wrap max-w-3xl text-center">
           <p className="eyebrow reveal">Let&apos;s begin</p>
           <h2 className="reveal mt-4 text-[clamp(2rem,5vw,3.5rem)]">
             Tell us about your day.
@@ -410,14 +411,29 @@ export default function Home() {
             our full attention. Reach out to check availability for your date, and we&apos;d love
             to hear what you&apos;re planning.
           </p>
-          <div className="reveal mt-9">
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center rounded-full bg-[#ededed] px-8 py-4 text-sm tracking-wide text-[#111111] transition-colors hover:bg-[#b07a52]"
-            >
-              Inquire about your date
-            </Link>
+          {/* The form lives here rather than behind a link to /contact: this is the
+              closing CTA of the homepage, and making couples click through first cost
+              us inquiries. Same component and same Studio OS endpoint as /contact. */}
+          <div className="reveal mt-10 text-left">
+            <BookingForm showHeading={false} />
           </div>
+          <p className="reveal mt-8 text-sm text-[#9a9189]">
+            Prefer to reach out directly? Email us at{" "}
+            <a
+              href={`mailto:${CONTACT_INFO.email}`}
+              className="text-[#b07a52] underline decoration-[#b07a52]/40 underline-offset-4 transition-colors hover:decoration-[#b07a52]"
+            >
+              {CONTACT_INFO.email}
+            </a>{" "}
+            or call{" "}
+            <a
+              href={`tel:${CONTACT_INFO.phoneE164}`}
+              className="text-[#b07a52] underline decoration-[#b07a52]/40 underline-offset-4 transition-colors hover:decoration-[#b07a52]"
+            >
+              {CONTACT_INFO.phone}
+            </a>
+            .
+          </p>
         </div>
       </section>
     </main>

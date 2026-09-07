@@ -46,7 +46,12 @@ const SERVICE_OPTIONS = [
   "Other",
 ];
 
-export function BookingForm() {
+/**
+ * `showHeading` is on by default so /contact keeps its "Ready to Book?" title.
+ * The homepage passes false: the section it sits in already says "Tell us about
+ * your day," and repeating it twice in a row read as a mistake.
+ */
+export function BookingForm({ showHeading = true }: { showHeading?: boolean }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
@@ -111,10 +116,14 @@ export function BookingForm() {
 
   return (
     <form onSubmit={submit} className="w-full rounded-2xl border border-[#262626] bg-[#111111] p-8 sm:p-9">
-      <h2 className="font-serif text-3xl text-center">Ready to Book?</h2>
-      <p className="mt-2 mb-7 text-center font-light text-[#9a9189]">
-        Tell us a little about your day and we&rsquo;ll be in touch.
-      </p>
+      {showHeading ? (
+        <>
+          <h2 className="font-serif text-3xl text-center">Ready to Book?</h2>
+          <p className="mt-2 mb-7 text-center font-light text-[#9a9189]">
+            Tell us a little about your day and we&rsquo;ll be in touch.
+          </p>
+        </>
+      ) : null}
 
       <div className="space-y-5">
         <div>
