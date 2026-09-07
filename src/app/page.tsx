@@ -273,8 +273,13 @@ export default function Home() {
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
               src="/images/about-photo.webp"
+              srcSet={srcSet("/images/about-photo.webp", 1024)}
+              sizes="(min-width: 768px) 44vw, 100vw"
+              width={1024}
+              height={682}
               alt="The four sisters behind Cute Company Photography"
               loading="lazy"
+              decoding="async"
               className="aspect-[4/5] w-full object-cover"
             />
           </div>
