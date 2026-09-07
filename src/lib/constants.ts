@@ -8,14 +8,62 @@ export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
 // Manage Pinterest / GA / conversion tags inside the GTM dashboard, not here.
 export const GTM_CONTAINER_ID = "GTM-MHXCT2RK";
 
-export const NAV_LINKS = [
-    { name: "Portfolio", href: "/portfolio" },
-    { name: "Sessions", href: "/sessions" },
+/**
+ * Primary navigation.
+ *
+ * Kept to four top-level items. "Sessions vs Offers vs Services" was a
+ * distinction only the studio understood, so the three work-related pages now
+ * sit under one "Work" group: Portfolio (the images), Sessions (real shoots
+ * written up) and Investment (packages and pricing). Every page is still
+ * reachable and every URL is unchanged - this is a grouping change, not a
+ * restructure.
+ *
+ * `children` renders as a dropdown on desktop and an indented group in the
+ * mobile sheet. Items without `children` are plain links.
+ */
+export type NavLink = {
+    name: string;
+    href: string;
+    children?: { name: string; href: string; blurb: string }[];
+};
+
+export const NAV_LINKS: NavLink[] = [
+    {
+        name: "Work",
+        href: "/portfolio",
+        children: [
+            {
+                name: "Portfolio",
+                href: "/portfolio",
+                blurb: "Weddings, portraits, and commercial work.",
+            },
+            {
+                name: "Sessions",
+                href: "/sessions",
+                blurb: "Real shoots, written up start to finish.",
+            },
+            {
+                name: "Investment",
+                href: "/services",
+                blurb: "Packages, coverage, and what it costs.",
+            },
+        ],
+    },
     { name: "Offers", href: "/offers" },
     { name: "About", href: "/about" },
-    { name: "Services", href: "/services" },
     { name: "Contact", href: "/contact" },
 ];
+
+/**
+ * Every page, flat, in reading order - for the footer.
+ *
+ * Derived from NAV_LINKS so a page can never be added to the header and
+ * silently missed in the footer. Groups contribute their children, not the
+ * group itself (there is no "Work" page to link to).
+ */
+export const FOOTER_LINKS: { name: string; href: string }[] = NAV_LINKS.flatMap(
+    (l) => (l.children ? l.children.map(({ name, href }) => ({ name, href })) : [{ name: l.name, href: l.href }]),
+);
 
 export const SOCIAL_LINKS = {
     instagram: "https://www.instagram.com/cutecompanyphotography/",

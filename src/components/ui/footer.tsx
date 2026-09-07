@@ -1,4 +1,4 @@
-import { SOCIAL_LINKS, CONTACT_INFO, NAV_LINKS } from "@/lib/constants"
+import { SOCIAL_LINKS, CONTACT_INFO, FOOTER_LINKS } from "@/lib/constants"
 import { Instagram } from "lucide-react"
 import Link from "next/link"
 
@@ -30,8 +30,13 @@ export function Footer() {
                     <div>
                         <p className="text-[0.68rem] uppercase tracking-[0.18em] text-[#ededed]">Explore</p>
                         <ul className="mt-4 space-y-2.5 text-sm">
-                            {NAV_LINKS.map((l) => (
-                                <li key={l.name}>
+                            {/* Flattened: the header groups the work pages under a
+                                "Work" dropdown, but the footer is where every page
+                                should be listed outright, both for visitors who
+                                scroll rather than hunt and to keep the internal
+                                links crawlable. */}
+                            {FOOTER_LINKS.map((l) => (
+                                <li key={l.href}>
                                     <Link href={l.href} className="transition-colors hover:text-[#ededed]">
                                         {l.name}
                                     </Link>
