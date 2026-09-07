@@ -4,6 +4,7 @@ import { Reveal } from "@/components/ui/reveal";
 import { Marquee } from "@/components/ui/marquee";
 import { CONTACT_INFO, SITE_URL, SOCIAL_LINKS } from "@/lib/constants";
 import { BookingForm } from "@/components/booking-form";
+import { srcSet } from "@/lib/images";
 
 // Google Business Profile map link (derived from the business's place ID).
 const GBP_MAP = "https://www.google.com/maps/place/?q=place_id:ChIJszQJrAhNwgwRx11eqz5r-Ow";
@@ -17,39 +18,68 @@ export const metadata: Metadata = {
 };
 
 // Portfolio bento tiles — real .webp assets under /public/images.
-const BENTO: { src: string; caption: string; className: string; pos?: string }[] = [
+// `sizes` mirrors each tile's column span so the browser can pick the right
+// variant: the grid is 12 columns inside a max-w-6xl (72rem) wrap, and below
+// the sm breakpoint the spans change (see className on each tile).
+const BENTO: {
+  src: string;
+  caption: string;
+  className: string;
+  pos?: string;
+  w: number;
+  h: number;
+  sizes: string;
+}[] = [
   {
     src: "/images/uploads/micro-wedding-plant-city-01.webp",
+    sizes: "(min-width: 640px) 42vw, 100vw",
+    w: 1333,
+    h: 2000,
     caption: "Micro wedding · Plant City",
     className: "col-span-12 sm:col-span-7 row-span-2",
     pos: "object-[center_35%]",
   },
   {
     src: "/images/portraits/bonnet-springs-engagement-lakeland-02.webp",
+    sizes: "(min-width: 640px) 30vw, 100vw",
+    w: 682,
+    h: 1024,
     caption: "Engagement · Bonnet Springs, Lakeland",
     className: "col-span-12 sm:col-span-5 sm:row-span-2",
     pos: "object-[center_20%]",
   },
   {
     src: "/images/uploads/eureka-springs-engagement-tampa-01.webp",
+    sizes: "(min-width: 640px) 30vw, 50vw",
+    w: 1333,
+    h: 2000,
     caption: "Engagement · Eureka Springs, Tampa",
     className: "col-span-6 sm:col-span-5 sm:row-span-2",
     pos: "object-[center_15%]",
   },
   {
     src: "/images/portraits/gala-downtown-tampa-01.webp",
+    sizes: "(min-width: 640px) 24vw, 50vw",
+    w: 1024,
+    h: 682,
     caption: "Gala · Downtown Tampa",
     className: "col-span-6 sm:col-span-4",
     pos: "object-[center_30%]",
   },
   {
     src: "/images/portraits/formal-portrait-bonnet-springs-lakeland-02.webp",
+    sizes: "(min-width: 640px) 24vw, 50vw",
+    w: 682,
+    h: 1024,
     caption: "Formal portrait · Lakeland",
     className: "col-span-6 sm:col-span-4 row-span-2",
     pos: "object-[center_25%]",
   },
   {
     src: "/images/portraits/birthday-portrait-bonnet-springs-lakeland-01.webp",
+    sizes: "(min-width: 640px) 24vw, 50vw",
+    w: 682,
+    h: 1024,
     caption: "Birthday portrait · Lakeland",
     className: "col-span-6 sm:col-span-4",
     pos: "object-[center_30%]",
@@ -296,8 +326,13 @@ export default function Home() {
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={tile.src}
+                  srcSet={srcSet(tile.src, tile.w)}
+                  sizes={tile.sizes}
+                  width={tile.w}
+                  height={tile.h}
                   alt={tile.caption}
                   loading="lazy"
+                  decoding="async"
                   className={`h-full w-full object-cover ${tile.pos ?? "object-center"} transition-transform duration-700 ease-out group-hover:scale-[1.04]`}
                 />
                 <figcaption className="pointer-events-none absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-black/75 to-transparent p-4 text-sm text-[#ededed] opacity-0 transition-all duration-500 group-hover:translate-y-0 group-hover:opacity-100">
