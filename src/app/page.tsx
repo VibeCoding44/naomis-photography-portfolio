@@ -132,20 +132,31 @@ export default function Home() {
       {/* ───────────────────────── Hero ───────────────────────── */}
       <section className="relative isolate overflow-hidden">
         {/* eslint-disable-next-line @next/next/no-img-element */}
+        {/* object-position pushes the couple down and right on mobile so the
+            headline is not set across their faces; desktop keeps the centred
+            framing, where the copy occupies the left column instead. */}
         <img
           src="/images/wedding-hero.webp"
           alt="Fine-art wedding photography in Central Florida by Cute Company Photography"
           loading="eager"
-          className="absolute inset-0 -z-10 h-full w-full object-cover"
+          fetchPriority="high"
+          decoding="async"
+          width={1024}
+          height={682}
+          className="absolute inset-0 -z-10 h-full w-full object-cover object-[68%_78%] md:object-center"
         />
-        {/* Dark wash for legibility over the hero photo. */}
+        {/* Legibility scrim. The left-to-right wash only makes sense once the
+            copy is in a left column, so it is gated to md+. Below that the copy
+            spans the full width and needs an even vertical wash instead. */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-gradient-to-r from-[#0a0a0a]/95 via-[#0a0a0a]/80 to-[#0a0a0a]/35"
+          className="absolute inset-0 -z-10 bg-[#0a0a0a]/45 md:bg-transparent md:bg-gradient-to-r md:from-[#0a0a0a]/95 md:via-[#0a0a0a]/80 md:to-[#0a0a0a]/35"
         />
+        {/* Mobile: strongest at the top behind the headline, easing off over the
+            couple so the photograph still reads. Desktop keeps its original wash. */}
         <div
           aria-hidden="true"
-          className="absolute inset-0 -z-10 bg-gradient-to-t from-[#0a0a0a]/90 via-transparent to-[#111111]/30"
+          className="absolute inset-0 -z-10 bg-gradient-to-b from-[#0a0a0a]/85 via-[#0a0a0a]/40 to-[#0a0a0a]/75 md:bg-gradient-to-t md:from-[#0a0a0a]/90 md:via-transparent md:to-[#111111]/30"
         />
 
         <div className="wrap">
@@ -154,7 +165,14 @@ export default function Home() {
             <h1 className="reveal mt-5 text-[clamp(2.6rem,6vw,4.75rem)] leading-[1.04]">
               The moments most worth holding onto.
             </h1>
-            <p className="reveal prose-cormorant mt-7 max-w-xl">
+            {/* Two phrasings of the same sentence: the short one keeps the mobile
+                hero from running six lines over the photo, the full one keeps the
+                location keywords in the desktop hero. Only one is ever rendered. */}
+            <p className="reveal prose-cormorant mt-7 max-w-xl md:hidden">
+              A family-owned studio in Plant City, photographing weddings and families across
+              Tampa Bay.
+            </p>
+            <p className="reveal prose-cormorant mt-7 hidden max-w-xl md:block">
               A family-owned studio in Plant City, photographing weddings, families, and
               milestones across Tampa Bay and Central Florida with a calm, natural-light,
               editorial eye.
