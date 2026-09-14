@@ -24,7 +24,7 @@ export const GTM_CONTAINER_ID = "GTM-MHXCT2RK";
 export type NavLink = {
     name: string;
     href: string;
-    children?: { name: string; href: string; blurb: string }[];
+    children?: { name: string; href: string; blurb: string; linkText?: string }[];
 };
 
 export const NAV_LINKS: NavLink[] = [
@@ -46,6 +46,13 @@ export const NAV_LINKS: NavLink[] = [
                 name: "Investment",
                 href: "/services",
                 blurb: "Packages, coverage, and what it costs.",
+                // The dropdown needs a short label to sit beside Portfolio and
+                // Sessions, but "Investment" describes neither photography nor
+                // pricing in words anyone searches for - and as the header +
+                // footer label it was the site's most-repeated anchor text for
+                // this page by roughly 8:1. The footer has room for the real
+                // words, so it uses these instead.
+                linkText: "Photography Services & Packages",
             },
         ],
     },
@@ -60,9 +67,15 @@ export const NAV_LINKS: NavLink[] = [
  * Derived from NAV_LINKS so a page can never be added to the header and
  * silently missed in the footer. Groups contribute their children, not the
  * group itself (there is no "Work" page to link to).
+ *
+ * A child's `linkText` wins over its `name` here: the footer is a flat list
+ * with room for descriptive anchor text, while the dropdown needs short labels.
  */
 export const FOOTER_LINKS: { name: string; href: string }[] = NAV_LINKS.flatMap(
-    (l) => (l.children ? l.children.map(({ name, href }) => ({ name, href })) : [{ name: l.name, href: l.href }]),
+    (l) =>
+        l.children
+            ? l.children.map(({ name, href, linkText }) => ({ name: linkText ?? name, href }))
+            : [{ name: l.name, href: l.href }],
 );
 
 export const SOCIAL_LINKS = {

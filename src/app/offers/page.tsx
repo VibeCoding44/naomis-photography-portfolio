@@ -150,7 +150,7 @@ export default function OffersPage() {
                             </Link>
                             . If you&apos;re after something more personal, our{" "}
                             <Link href="/services" className="text-[#b07a52] hover:underline">
-                                full sessions and wedding collections
+                                photography packages and wedding collections
                             </Link>{" "}
                             are open year-round, and you can see recent shoots on the{" "}
                             <Link href="/sessions" className="text-[#b07a52] hover:underline">
