@@ -25,12 +25,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: path === "" ? 1 : path === "/privacy" ? 0.3 : 0.8,
   }));
 
-  const sessionEntries: MetadataRoute.Sitemap = getSessions().map((post) => ({
-    url: `${SITE_URL}/sessions/${post.slug}`,
-    lastModified: post.date || undefined,
-    changeFrequency: "monthly",
-    priority: 0.7,
-  }));
+  // Session posts used `post.date` - the date of the SHOOT, not the date the
+  // page last changed. Bonnet Springs was stamped 2026-06-25 and last crawled
+  // 2026-06-19, sitting on "Crawled - currently not indexed": every rebuild
+  // since (metadata rewrites included) was invisible to Google, because the
+  // sitemap kept insisting the page had not changed. Same reasoning as the
+  // static routes above - stamp the build time, which is genuinely when the
+  // rendered page last changed. Guarded with max() so a post dated in the
+  // future (a scheduled shoot) is never back-dated to the build.
+  const sessionEntries: MetadataRoute.Sitemap = getSessions().map((post) => {
+    const posted = post.date ? new Date(post.date) : undefined;
+    const lastModified =
+      posted && posted.getTime() > builtAt.getTime() ? posted : builtAt;
+    return {
+      url: `${SITE_URL}/sessions/${post.slug}`,
+      lastModified,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    };
+  });
 
   return [...staticEntries, ...sessionEntries];
 }
