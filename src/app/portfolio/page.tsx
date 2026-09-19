@@ -3,8 +3,8 @@ import { getPortfolioItems } from "@/lib/portfolio";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Portfolio | Wedding, Portrait & Commercial Photography",
-    description: "Browse a curated portfolio of fine art wedding, portrait, and commercial photography by Cute Company Photography, serving Plant City, Tampa, and Central Florida.",
+    title: "Wedding & Portrait Portfolio",
+    description: "A curated portfolio of fine art wedding, portrait, and commercial photography in Plant City, Tampa, and Central Florida.",
     alternates: {
         canonical: "/portfolio",
     },

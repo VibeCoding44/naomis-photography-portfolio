@@ -5,9 +5,8 @@ import { SITE_URL } from "@/lib/constants";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Sessions & Stories | Plant City & Tampa Photography Journal",
-    description:
-        "Real weddings, engagements, and portrait sessions photographed across Plant City, Tampa, and Central Florida by Cute Company Photography. Browse our latest stories.",
+    title: "Sessions & Stories",
+    description: "Real weddings, engagements, and portrait sessions photographed across Plant City, Tampa, and Central Florida.",
     alternates: {
         canonical: "/sessions",
     },
@@ -17,6 +16,14 @@ export const metadata: Metadata = {
         title: "Sessions & Stories | Cute Company Photography",
         description:
             "Real weddings, engagements, and portrait sessions photographed across Plant City, Tampa, and Central Florida.",
+        images: [
+            {
+                url: "/images/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Cute Company Photography, fine art wedding photography in Plant City & Tampa, FL",
+            },
+        ],
     },
 };
 

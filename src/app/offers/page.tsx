@@ -8,9 +8,8 @@ import type { Metadata } from "next";
 export const dynamic = "force-static";
 
 export const metadata: Metadata = {
-    title: "Current Offers & Mini Sessions | Plant City & Tampa Photography",
-    description:
-        "Seasonal mini sessions, graduation specials, and limited-time photography offers from Cute Company Photography, serving Plant City, Tampa Bay, and Central Florida.",
+    title: "Mini Sessions & Current Offers",
+    description: "Seasonal mini sessions, graduation specials, and limited-time photography offers in Plant City and Tampa Bay.",
     alternates: {
         canonical: "/offers",
     },
@@ -20,6 +19,14 @@ export const metadata: Metadata = {
         title: "Current Offers & Mini Sessions | Cute Company Photography",
         description:
             "Seasonal mini sessions and limited-time photography specials across Plant City, Tampa, and Central Florida.",
+        images: [
+            {
+                url: "/images/og-image.jpg",
+                width: 1200,
+                height: 630,
+                alt: "Cute Company Photography, fine art wedding photography in Plant City & Tampa, FL",
+            },
+        ],
     },
 };
 

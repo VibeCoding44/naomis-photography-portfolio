@@ -3,8 +3,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "About the Photographers | Plant City & Tampa",
-    description: "Cute Company Photography is a family-owned Plant City wedding and portrait photographer serving the Tampa Bay area. Meet the four sisters capturing weddings, families, and candid moments across Central Florida.",
+    title: "About the Photographers",
+    description: "Meet the four sisters behind Cute Company Photography, a family-owned Plant City wedding and portrait team serving Tampa Bay.",
     alternates: {
         canonical: "/about",
     },

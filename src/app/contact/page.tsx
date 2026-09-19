@@ -3,7 +3,7 @@ import { BookingForm } from "@/components/booking-form";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Contact & Booking | Plant City & Tampa Photographer",
+    title: "Contact & Booking",
     description: "Book your wedding, portrait, or commercial session with Cute Company Photography in Plant City and Tampa, FL. Get in touch to start planning your shoot.",
     alternates: {
         canonical: "/contact",

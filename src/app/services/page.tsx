@@ -5,8 +5,8 @@ import { CONTACT_INFO } from "@/lib/constants";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {
-    title: "Photography Services & Packages | Plant City & Tampa",
-    description: "Wedding, portrait, family, and commercial photography packages serving Plant City, Tampa Bay, and Central Florida. See what's included, the experience, and how to book.",
+    title: "Photography Services & Packages",
+    description: "Wedding, portrait, family, and commercial photography packages for Plant City and Tampa Bay. See what's included and how to book.",
     alternates: {
         canonical: "/services",
     },

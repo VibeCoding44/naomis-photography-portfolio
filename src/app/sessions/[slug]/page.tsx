@@ -30,27 +30,31 @@ export async function generateMetadata({
     const post = getSessionBySlug(slug);
     if (!post) return { title: "Story Not Found" };
 
+    // Search + social description: the dedicated field when set, else the
+    // excerpt (which is written as on-page card copy and may run long).
+    const metaDescription = post.metaDescription ?? post.excerpt;
+    const metaTitle = post.metaTitle ?? post.title;
     const url = `${SITE_URL}/sessions/${post.slug}`;
     const image = post.coverImage.startsWith("http") ? post.coverImage : `${SITE_URL}${post.coverImage}`;
 
     return {
-        title: post.title,
-        description: post.excerpt,
+        title: metaTitle,
+        description: metaDescription,
         alternates: { canonical: `/sessions/${post.slug}` },
         openGraph: {
             // og:type=article is what turns links to this page into Pinterest Rich Pins.
             type: "article",
             url,
-            title: post.title,
-            description: post.excerpt,
+            title: metaTitle,
+            description: metaDescription,
             publishedTime: post.date || undefined,
             authors: ["Cute Company Photography"],
             images: [{ url: image, alt: post.title }],
         },
         twitter: {
             card: "summary_large_image",
-            title: post.title,
-            description: post.excerpt,
+            title: metaTitle,
+            description: metaDescription,
             images: [image],
         },
     };

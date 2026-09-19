@@ -14,7 +14,16 @@ export type SessionPost = {
     location?: string; // city / area (e.g. "Plant City, FL")
     venue?: string; // optional venue name (e.g. "Edward Medard Park")
     category?: string; // weddings | engagements | portraits | family | commercial | events
-    excerpt: string; // card text + meta/OG description
+    excerpt: string; // card text on /sessions (and the meta description fallback)
+    // Optional search-result description. The excerpt doubles as on-page card
+    // copy, so it is written to read well and often runs past the ~155 chars
+    // Google shows. Set this to control what search + social actually display
+    // without shortening the visible card text.
+    metaDescription?: string;
+    // Optional shorter <title>. The post title is the on-page H1 and is written
+    // as a full sentence; with the ' | Cute Company Photography' suffix that can
+    // pass the ~60 chars Google shows. Set this to control the search result.
+    metaTitle?: string;
     coverImage: string;
     galleryUrl?: string; // optional Pic-Time (or other) full-gallery link → renders a "View the full gallery" button
     gallery?: SessionGalleryImage[];

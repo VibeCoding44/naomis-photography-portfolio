@@ -10,8 +10,8 @@ import { srcSet } from "@/lib/images";
 const GBP_MAP = "https://www.google.com/maps/place/?q=place_id:ChIJszQJrAhNwgwRx11eqz5r-Ow";
 
 export const metadata: Metadata = {
-  title: "Plant City & Tampa Wedding Photographer | Fine Art & Editorial",
-  description: "Cute Company Photography is a family-owned, Plant City and Tampa-based photography team specializing in fine art wedding, commercial, and family portrait photography across Central Florida.",
+  title: "Plant City & Tampa Wedding Photographer",
+  description: "Family-owned fine art wedding, portrait, and commercial photography in Plant City, Tampa, and Central Florida.",
   alternates: {
     canonical: "/",
   },
