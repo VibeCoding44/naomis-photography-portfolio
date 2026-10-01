@@ -107,6 +107,8 @@ export default async function SessionPostPage({
 
     const meta = [post.location, formatDate(post.date)].filter(Boolean).join(" · ");
     const gallery = (post.gallery ?? []).filter((g) => g.image && g.image !== post.coverImage);
+    // Prefer the hand-written alt when the cover is also in the gallery list.
+    const coverAlt = post.gallery?.find((g) => g.image === post.coverImage)?.alt || post.title;
 
     return (
         <main className="pt-32 pb-20 min-h-screen bg-[#0a0a0a] text-[#ededed]">
@@ -134,7 +136,7 @@ export default async function SessionPostPage({
                 <div className="max-w-4xl mx-auto relative aspect-[3/2] overflow-hidden rounded-lg mb-12">
                     <Image
                         src={post.coverImage}
-                        alt={`${post.title}, photography by Cute Company Photography in ${post.location || "Central Florida"}`}
+                        alt={coverAlt}
                         fill
                         priority
                         className="object-cover object-[50%_25%]"
