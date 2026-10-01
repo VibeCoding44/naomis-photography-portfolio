@@ -64,7 +64,7 @@ export default function SessionsPage() {
                                     <div className="relative aspect-[4/5] overflow-hidden">
                                         <Image
                                             src={post.coverImage}
-                                            alt={`${post.title}, photography by Cute Company Photography`}
+                                            alt={post.title}
                                             fill
                                             className="object-cover transition-transform duration-700 group-hover:scale-105"
                                             sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"

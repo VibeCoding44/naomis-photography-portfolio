@@ -28,9 +28,11 @@ export function GalleryGrid({ items }: { items: PortfolioItem[] }) {
                 >
                     <Image
                         src={item.image}
-                        alt={label
-                            ? `${label}, fine art photography by Cute Company Photography in Plant City & Tampa, FL`
-                            : `Fine art wedding, portrait & family photography by Cute Company Photography in Plant City & Tampa Bay, FL`}
+                        // The title already says what and where ("Lakeside engagement
+                        // session at Bonnet Springs Park, Lakeland"). Appending the
+                        // same brand + city suffix to every image made every alt
+                        // end identically, which reads as keyword stuffing.
+                        alt={label || "Photograph by Cute Company Photography"}
                         width={800}
                         height={600}
                         className="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105"
@@ -39,7 +41,7 @@ export function GalleryGrid({ items }: { items: PortfolioItem[] }) {
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-start p-4">
                         {label ? (
-                            <span className="text-white/90 text-sm font-light">{label}</span>
+                            <span aria-hidden="true" className="text-white/90 text-sm font-light">{label}</span>
                         ) : null}
                     </div>
                 </motion.div>
