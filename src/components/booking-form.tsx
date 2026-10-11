@@ -11,10 +11,11 @@
  * book right away.
  */
 
-import { useState } from "react";
+import { useRef, useState } from "react";
 import Link from "next/link";
 import { ChevronDown } from "lucide-react";
 import { CONTACT_INFO } from "@/lib/constants";
+import { track } from "@/lib/track";
 
 // Studio OS endpoint. Override at build time with NEXT_PUBLIC_STUDIO_OS_URL.
 const STUDIO_OS_URL =
@@ -60,6 +61,7 @@ export function BookingForm({ showHeading = true }: { showHeading?: boolean }) {
   const [detail, setDetail] = useState("");
   const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
+  const startedTracked = useRef(false);
 
   const ready = name.trim() && email.includes("@");
 
@@ -78,6 +80,8 @@ export function BookingForm({ showHeading = true }: { showHeading?: boolean }) {
         const body = await res.json().catch(() => ({}));
         throw new Error(body.error || "Something went wrong. Please try again.");
       }
+      // Only the two dropdown choices are sent, never the name, email, phone or message.
+      track("inquiry_submitted", { service: service.trim(), source: source.trim() });
       setStatus("sent");
     } catch (err) {
       setErrorMsg(err instanceof Error ? err.message : "Something went wrong. Please try again.");
@@ -115,7 +119,15 @@ export function BookingForm({ showHeading = true }: { showHeading?: boolean }) {
   }
 
   return (
-    <form onSubmit={submit} className="w-full rounded-2xl border border-[#262626] bg-[#111111] p-8 sm:p-9">
+    <form
+      onSubmit={submit}
+      onFocus={() => {
+        if (!startedTracked.current) {
+          startedTracked.current = true;
+          track("inquiry_form_started");
+        }
+      }}
+      className="w-full rounded-2xl border border-[#262626] bg-[#111111] p-8 sm:p-9">
       {showHeading ? (
         <>
           <h2 className="font-serif text-3xl text-center">Ready to Book?</h2>
