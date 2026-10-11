@@ -7,6 +7,8 @@ export const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
 // Google Tag Manager container ID. Public by design (appears in page source).
 // Manage Pinterest / GA / conversion tags inside the GTM dashboard, not here.
 export const GTM_CONTAINER_ID = "GTM-MHXCT2RK";
+// Public PostHog project key (safe to ship in page code). Counts visitors and inquiries for the owner's dashboard.
+export const POSTHOG_KEY = "phc_mVHrSCYqUWRxpqUQKnnv37eTHnWoAaLQwVHRRwcnBMzS";
 
 /**
  * Primary navigation.

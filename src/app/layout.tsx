@@ -5,6 +5,7 @@ import { Navbar } from "@/components/ui/navbar";
 import { Footer } from "@/components/ui/footer";
 import { SITE_URL, GA_MEASUREMENT_ID, GTM_CONTAINER_ID } from "@/lib/constants";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { PostHog } from "@/components/posthog";
 
 const playfair = Playfair_Display({
   variable: "--font-playfair",
@@ -77,6 +78,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
+        <PostHog />
       </body>
       {GA_MEASUREMENT_ID && <GoogleAnalytics gaId={GA_MEASUREMENT_ID} />}
     </html>
